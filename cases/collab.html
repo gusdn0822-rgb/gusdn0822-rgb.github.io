@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사내 협업툴 사례 — 남현우</title>
+<meta name="description" content="Pureprompt 사내 협업툴: 슬랙형 메신저에 현황 문서·할 일·일정을 붙이고, 한국어 검색·입력을 맞춘 과정.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../">남현우</a>
+    <nav class="nav" aria-label="사례">
+      <a href="ondajung.html">온다정</a>
+      <a href="agentone.html">에이전트원</a>
+      <a href="collab.html" aria-current="page">협업툴</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="case">
+    <p class="crumb"><a href="../#cases">← 사례 목록</a></p>
+    <h1>Pureprompt — 한국형 사내 협업툴</h1>
+    <p class="lead">솔루션 넷(온다정·띠링·에이전트원·이음)과 마케터·개발자가 한곳에서 대화하고, 현황 문서와 할 일을 맞춰 가는 사내 협업툴입니다. 슬랙을 뼈대로, 노션·리니어의 좋은 조각을 붙여 처음부터 지었습니다.</p>
+    <ul class="meta">
+      <li><small>역할</small>혼자 설계·구현·배포</li>
+      <li><small>상태</small>사내 운영 중</li>
+      <li><small>기술</small>FastAPI · WebSocket · SQLite · Web Push · Google OAuth</li>
+      <li><small>기간</small>2026.09 ~ 지금</li>
+    </ul>
+  </article>
+
+  <div class="block">
+    <h2>무엇을 만들었나</h2>
+    <ul>
+      <li><b>대화</b> — 채널·스레드·DM·반응·@부르기·고정·북마크·예약 전송·나중에 알려 줘, 실시간은 WebSocket</li>
+      <li><b>현황 문서</b> — 채널마다 노션식 문서 한 장, 판 기록 100판·되돌리기, 오래 안 바뀐 것을 월요일에 알림</li>
+      <li><b>할 일</b> — 리니어식 짧은 번호(개발-42)를 대화에 쓰면 카드로, 보드·하위 체크</li>
+      <li><b>일정</b> — 회사 구글 계정 로그인, 각자 허용한 캘린더로 회의 잡기·Meet·10분 전 알림</li>
+      <li><b>관제 금고</b> — 운영 화면 비밀번호는 AES-GCM 으로 잠그고 '복사'로만, 누가·언제 복사했는지 기록</li>
+      <li><b>에이전트 API</b> — 사람이 만든 열쇠로 AI 에이전트가 진행 상황을 읽고 씀. DB 엔 sha256 지문만</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2>푼 문제</h2>
+
+    <div class="story">
+      <h3>1. 한국어 사용자는 영어 자판 상태로 이름을 친다</h3>
+      <dl>
+        <dt>문제</dt><dd>사람을 찾으려고 한글 전환을 잊은 채 <code>skagusdn</code> 을 치거나, 초성만 <code>ㄴㅎㅇ</code> 으로 칩니다. 한글을 조합하는 중에 Enter 를 누르면 글이 두 번 가거나 마지막 글자가 빠졌습니다.</dd>
+        <dt>한 일</dt><dd>낱말마다 초성 맞추기와 영문 자판 → 한글 변환을 한 함수로 만들어 사이드바·@부르기·찾기 등 <b>13곳</b>에 붙였습니다. 조합 중 Enter 는 브라우저 자동 조작으로 실제 입력을 재현해 고쳤습니다.</dd>
+        <dt>결과</dt><dd class="result"><code>ㄴㅎㅇ</code>·<code>skagusdn</code> 모두 → <b>남현우</b>. 찾기 결과에 "혹시 ‘남현우’로 찾을까요?".</dd>
+      </dl>
+    </div>
+
+    <div class="story">
+      <h3>2. 보기 좋은 화면을 '눈'이 아니라 '자'로</h3>
+      <dl>
+        <dt>문제</dt><dd>화면을 고칠 때마다 글자 크기·단추 높이·여백이 조금씩 늘어나 처음엔 글자 20가지, 높이 13가지, 여백 25가지였습니다.</dd>
+        <dt>한 일</dt><dd>크기를 <code>:root</code> 토큰 단계로 묶고, <b>화면 폭 10가지 × 화면 31개</b>를 자동으로 열어 글자 대비 4.5:1, 폰 누름 영역 32px, 왼쪽 끝 어긋남을 재는 점검기를 만들었습니다. 실제 슬랙 화면과 나란히 치수를 재서 맞췄습니다.</dd>
+        <dt>결과</dt><dd class="result">점검기 걸림 <b>0</b> · 시험 <b>API 283 · 화면 63</b>, 쓰는 DB 와 분리된 시험 서버에서.</dd>
+      </dl>
+    </div>
+
+    <div class="story">
+      <h3>3. 기록이 거짓말하지 않게</h3>
+      <dl>
+        <dt>문제</dt><dd>일은 대화창에서 끝나는데 표를 고치는 사람이 없으면, 표는 며칠 전 상태로 멈춰 거짓말을 합니다.</dd>
+        <dt>한 일</dt><dd>일을 마칠 때마다 '무엇이 바뀌었나'를 한 묶음으로 적어 서버에 넣는 길을 만들었습니다. 같은 묶음을 두 번 넣어도 같고, 사람이 고친 줄은 덮지 않습니다.</dd>
+        <dt>결과</dt><dd class="result">솔루션 채널 넷의 현황·할 일이 <b>그날 기록</b>으로 맞춰집니다.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2>배운 것</h2>
+    <ul>
+      <li>남의 제품을 따라 할 땐 '느낌'이 아니라 치수를 재서 맞춥니다.</li>
+      <li>비밀은 응답·실시간·로그 어디에도 싣지 않고, 꺼내는 길을 하나로 둡니다.</li>
+    </ul>
+    <p class="note">사내 도구라 코드는 회사 비공개 저장소에 있습니다.</p>
+  </div>
+</main>
+
+<footer><div class="wrap"><span>© 2026 남현우</span><a href="../">처음으로</a></div></footer>
+</body>
+</html>
