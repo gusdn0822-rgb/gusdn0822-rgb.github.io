@@ -158,5 +158,34 @@ a.card:hover { border-color: var(--accent); }
 .dg-s { fill: var(--text-3); font: 400 11.5px "Pretendard Variable", Pretendard, sans-serif; }
 .dg-line { stroke: var(--text-3); stroke-width: 1.4; fill: none; }
 
+/* 화면 사진 — 폰 화면 세 장을 나란히, 좁으면 옆으로 밀기 */
+.shots { display: flex; gap: 16px; overflow-x: auto; padding: 4px 2px 12px; margin: 8px 0 0; scroll-snap-type: x mandatory; }
+.shots figure { margin: 0; flex: 0 0 min(260px, 72vw); scroll-snap-align: start; }
+.shots img { width: 100%; display: block; border-radius: 22px; border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--surface); }
+.shots figcaption { color: var(--text-3); font-size: 13px; margin-top: 8px; text-align: center; }
+
+/* 표 (글 안) */
+.data { width: 100%; border-collapse: collapse; font-size: 15px; margin: 8px 0 4px; }
+.data th, .data td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: center; }
+.data th { color: var(--text-2); font-weight: 600; background: var(--surface-2); }
+.data td:first-child, .data th:first-child { text-align: left; }
+.data tr.best td { font-weight: 700; color: var(--text); }
+.tablewrap { overflow-x: auto; }
+
+/* 글 */
+.post { max-width: 760px; }
+.post h2 { font-size: 22px; letter-spacing: -.015em; margin: 36px 0 12px; }
+.post p, .post li { color: var(--text); }
+.post .dek { color: var(--text-2); font-size: 18px; margin: 0 0 8px; }
+.post .date { color: var(--text-3); font-size: 14px; margin: 0 0 28px; }
+pre { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px 16px; overflow-x: auto; font-size: 13.5px; line-height: 1.6; }
+code { font-family: "JetBrains Mono", ui-monospace, Consolas, "D2Coding", monospace; font-size: .92em; }
+:not(pre) > code { background: var(--surface-2); padding: 1px 6px; border-radius: 6px; }
+.posts { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.posts a { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; color: inherit; text-decoration: none; box-shadow: var(--shadow); }
+.posts a:hover { border-color: var(--accent); }
+.posts b { display: block; font-size: 17px; margin-bottom: 4px; }
+.posts span { color: var(--text-2); font-size: 15px; }
+
 footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--text-3); font-size: 14px; }
 footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }

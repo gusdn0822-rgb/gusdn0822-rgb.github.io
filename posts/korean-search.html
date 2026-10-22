@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>초성과 한영 오타로 찾기, 그리고 조합 중 Enter — 남현우</title>
+<meta name="description" content="사내 협업툴에 넣은 한국형 찾기: 초성 검색, 영문 자판 오타를 한글로 되돌리는 두벌식 오토마타, 한글 조합 중 Enter 처리.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../">남현우</a>
+    <nav class="nav" aria-label="글"><a href="../#posts">글 목록</a><a href="../#cases">사례</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="case post">
+    <p class="crumb"><a href="../#posts">← 글 목록</a></p>
+    <h1>초성과 한영 오타로 찾기, 그리고 조합 중 Enter</h1>
+    <p class="dek">사내 메신저를 만들며 한국어 사용자에게 맞춘 세 가지 — 'ㄴㅎㅇ'으로 사람 찾기, 'skagusdn'을 '남현우'로 알아듣기, 한글을 조합하는 중에 누른 Enter.</p>
+    <p class="date">2026년 10월 · JavaScript</p>
+
+    <h2>1. 초성으로 찾기 — 낱말마다</h2>
+    <p>한글 음절은 유니코드에서 <code>0xAC00</code> 부터 규칙적으로 놓여 있어서, 초성은 나눗셈 한 번으로 꺼낼 수 있습니다(초성 하나에 중성 21 × 종성 28 = 588 칸).</p>
+<pre><code>const CHO = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ';
+const choseong = s => [...s].map(ch => {
+  const c = ch.charCodeAt(0) - 0xAC00;
+  return c >= 0 &amp;&amp; c &lt; 11172 ? CHO[Math.floor(c / 588)] : ch;
+}).join('');
+
+choseong('남현우');   // 'ㄴㅎㅇ'</code></pre>
+    <p>처음엔 이름·직무·채널명을 한 줄로 붙여 초성을 비교했더니, 낱말 경계를 건너 엉뚱한 것이 걸렸습니다(이모지 찾기에서 'ㅂㅅ'이 두 낱말에 걸쳐 맞음). 그래서 <b>낱말마다 따로</b> 초성을 비교합니다.</p>
+
+    <h2>2. 영문 자판 오타를 한글로 — 두벌식 오토마타</h2>
+    <p>한글 전환을 잊고 <code>skagusdn</code> 을 치는 일은 흔합니다. 자판 자리를 자모로 바꾸는 것까진 쉽지만(<code>s→ㄴ, k→ㅏ, a→ㅁ …</code>), 자모를 글자로 묶는 게 핵심입니다.</p>
+    <ul>
+      <li>받침 뒤에 <b>모음이 오면</b> 그 받침은 다음 글자의 첫소리로 넘어갑니다. <code>ㄴㅏㅁㅎㅕㄴㅇㅜ</code> → <code>남·현·우</code></li>
+      <li>겹모음(<code>ㅗ+ㅏ→ㅘ</code>)과 겹받침(<code>ㄹ+ㄱ→ㄺ</code>)을 묶고, 겹받침 뒤에 모음이 오면 뒤쪽 자음만 넘깁니다.</li>
+      <li>Shift 는 된소리(<code>Q→ㅃ</code>)와 <code>O→ㅒ, P→ㅖ</code> 로 받습니다.</li>
+    </ul>
+    <p>찾기는 한 함수로 모았습니다 — 그대로 들어 있나 → 초성인가 → 영문이면 한글로 바꿔서 들어 있나. 사이드바·@부르기·채널·할 일 찾기 등 13곳이 같은 함수를 씁니다. 찾는 곳마다 따로 만들면 결과가 어긋나기 때문입니다.</p>
+
+    <h2>3. 조합 중에 누른 Enter</h2>
+    <p>크롬·엣지에서 '안녕'의 '녕'을 조합하는 도중 Enter 를 누르면, keydown 이 <code>isComposing = true</code> 로 먼저 옵니다. 이걸 그냥 무시하면 <b>Enter 를 두 번</b> 눌러야 보내지고, 바로 보내면 마지막 글자가 빠집니다. 사파리는 순서가 반대(조합이 먼저 끝나고 Enter)입니다.</p>
+<pre><code>function enterSends(input, send) {
+  let pendingAt = 0;
+  input.addEventListener('compositionend', () =&gt; {
+    // 조합 중 눌린 Enter 는 조합이 끝난 직후에 보낸다 — 1초 안에만
+    if (pendingAt &amp;&amp; performance.now() - pendingAt &lt; 1000) setTimeout(send, 0);
+    pendingAt = 0;
+  });
+  return e =&gt; {                       // keydown 에서 부른다
+    if (e.key !== 'Enter' || e.shiftKey) return false;
+    if (e.isComposing) { pendingAt = performance.now(); return true; }
+    e.preventDefault(); send(); return true;
+  };
+}</code></pre>
+    <p>'1초 안에만'을 둔 건, 걸어 둔 보내기가 한참 뒤 다른 글자의 조합 끝에 엉뚱하게 터지지 않게 하려는 것입니다. 확인은 브라우저 자동 조작으로 실제 조합 입력을 재현해서 했습니다.</p>
+
+    <h2>정리</h2>
+    <ul>
+      <li>한국어 입력은 '글자'가 아니라 <b>자모와 조합</b>의 문제로 보면 풀립니다.</li>
+      <li>찾기 규칙은 한 함수로 — 화면마다 따로 만들면 사용자는 '여기선 되고 저기선 안 되는' 앱을 만나게 됩니다.</li>
+    </ul>
+    <p class="note">위 코드는 설명을 위해 줄여 다시 쓴 것입니다.</p>
+  </article>
+</main>
+
+<footer><div class="wrap"><span>© 2026 남현우</span><a href="../">처음으로</a></div></footer>
+</body>
+</html>

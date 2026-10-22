@@ -14,6 +14,7 @@
     <a class="brand" href="../">남현우</a>
     <nav class="nav" aria-label="사례">
       <a href="ondajung.html">온다정</a>
+      <a href="staff-app.html">직원 앱</a>
       <a href="agentone.html">에이전트원</a>
       <a href="collab.html" aria-current="page">협업툴</a>
     </nav>
@@ -40,7 +41,6 @@
       <li><b>현황 문서</b> — 채널마다 노션식 문서 한 장, 판 기록 100판·되돌리기, 오래 안 바뀐 것을 월요일에 알림</li>
       <li><b>할 일</b> — 리니어식 짧은 번호(개발-42)를 대화에 쓰면 카드로, 보드·하위 체크</li>
       <li><b>일정</b> — 회사 구글 계정 로그인, 각자 허용한 캘린더로 회의 잡기·Meet·10분 전 알림</li>
-      <li><b>관제 금고</b> — 운영 화면 비밀번호는 AES-GCM 으로 잠그고 '복사'로만, 누가·언제 복사했는지 기록</li>
       <li><b>에이전트 API</b> — 사람이 만든 열쇠로 AI 에이전트가 진행 상황을 읽고 씀. DB 엔 sha256 지문만</li>
     </ul>
   </div>
@@ -53,7 +53,7 @@
       <dl>
         <dt>문제</dt><dd>사람을 찾으려고 한글 전환을 잊은 채 <code>skagusdn</code> 을 치거나, 초성만 <code>ㄴㅎㅇ</code> 으로 칩니다. 한글을 조합하는 중에 Enter 를 누르면 글이 두 번 가거나 마지막 글자가 빠졌습니다.</dd>
         <dt>한 일</dt><dd>낱말마다 초성 맞추기와 영문 자판 → 한글 변환을 한 함수로 만들어 사이드바·@부르기·찾기 등 <b>13곳</b>에 붙였습니다. 조합 중 Enter 는 브라우저 자동 조작으로 실제 입력을 재현해 고쳤습니다.</dd>
-        <dt>결과</dt><dd class="result"><code>ㄴㅎㅇ</code>·<code>skagusdn</code> 모두 → <b>남현우</b>. 찾기 결과에 "혹시 ‘남현우’로 찾을까요?".</dd>
+        <dt>결과</dt><dd class="result"><code>ㄴㅎㅇ</code>·<code>skagusdn</code> 모두 → <b>남현우</b>. 찾기 결과에 "혹시 ‘남현우’로 찾을까요?". <a href="../posts/korean-search.html">자세한 글 →</a></dd>
       </dl>
     </div>
 
