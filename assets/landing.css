@@ -176,6 +176,8 @@ body.landing { --side: clamp(16px, 4vw, 40px); --lh-tight: 1.22; letter-spacing:
 .spot { position: relative; isolation: isolate; overflow: hidden; }
 .spot::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .3s; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%); }
 .spot:hover::before { opacity: 1; }
+/* 터치 화면엔 '마우스'가 없다 — 누른 자리에 빛이 남아 파란 띠처럼 보였다(아이폰, 10/23) */
+@media (hover: none) { .spot::before { display: none; } }
 
 /* 데모 ① 한국어 찾기 */
 .palette { background: var(--surface); border-radius: 20px; box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 32px rgba(0,0,0,.08); overflow: hidden; }
@@ -183,7 +185,8 @@ body.landing { --side: clamp(16px, 4vw, 40px); --lh-tight: 1.22; letter-spacing:
 .palette .q svg { flex: none; color: var(--text-3); }
 .palette input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); font: 600 18px/1 inherit; font-family: inherit; padding: 18px 0; }
 .palette input::placeholder { color: var(--text-3); font-weight: 500; }
-.palette ul { list-style: none; margin: 0; padding: 8px; max-height: 260px; overflow: auto; }
+/* 높이 제한 없음 — 보이는 수는 스크립트가 4~6명으로 정한다(폰에서 칸 안 스크롤바가 생겼다) */
+.palette ul { list-style: none; margin: 0; padding: 8px; }
 .palette li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; }
 .palette li:first-child { background: var(--surface-2); }
 .palette .av { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-ink); font-weight: 700; font-size: 14px; flex: none; }
@@ -216,7 +219,6 @@ body.landing { --side: clamp(16px, 4vw, 40px); --lh-tight: 1.22; letter-spacing:
 .flow .pulse { fill: var(--accent); }
 .flow-note { display: flex; gap: 10px 24px; flex-wrap: wrap; margin-top: 14px; color: var(--text-2); font-size: 15px; }
 .flow-note b { color: var(--text); }
-@media (max-width: 720px) { .flow svg { min-width: 640px; } .flow { overflow-x: auto; } }
 
 /* 경력 타임라인 (Brittany Chiang) */
 .tl { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }

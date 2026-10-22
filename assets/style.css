@@ -161,8 +161,9 @@ a.card:hover { border-color: var(--accent); }
 .dg-line { stroke: var(--text-3); stroke-width: 1.4; fill: none; }
 
 /* 화면 사진 — 폰 화면 세 장을 나란히, 좁으면 옆으로 밀기 */
-.shots { display: flex; gap: 16px; overflow-x: auto; padding: 4px 2px 12px; margin: 8px 0 0; scroll-snap-type: x mandatory; }
-.shots figure { margin: 0; flex: 0 0 min(260px, 72vw); scroll-snap-align: start; }
+/* 3칸이 화면 폭에 맞춰 함께 줄어든다 — 옆으로 밀리지 않게(아이패드 미니 세로에서 밀렸다, 10/23) */
+.shots { display: grid; grid-template-columns: repeat(3, minmax(0, 260px)); justify-content: center; gap: 16px; padding: 4px 2px 12px; margin: 8px 0 0; }
+.shots figure { margin: 0; min-width: 0; }
 .shots img { width: 100%; display: block; border-radius: 22px; border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--surface); }
 .shots figcaption { color: var(--text-3); font-size: 13px; margin-top: 8px; text-align: center; }
 
@@ -188,6 +189,39 @@ code { font-family: "JetBrains Mono", ui-monospace, Consolas, "D2Coding", monosp
 .posts a:hover { border-color: var(--accent); }
 .posts b { display: block; font-size: 17px; margin-bottom: 4px; }
 .posts span { color: var(--text-2); font-size: 15px; }
+
+/* 흐름 — 넓으면 가로, 폰에선 세로 (2026-10-23 아이폰에서 가로 그림이 옆으로 밀려 잘려 보였다) */
+.flowx { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--n, 5), minmax(0, 1fr)); gap: 40px; }
+.flowx li { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px 12px; text-align: center; }
+.flowx li.key { background: var(--accent-soft); border-color: var(--accent); }
+.flowx li.note { background: transparent; border-style: dashed; }
+.flowx b { display: block; font-size: 15px; letter-spacing: -.01em; }
+.flowx span { display: block; font-size: 13px; color: var(--text-3); margin-top: 2px; line-height: 1.45; }
+.flowx li:not(:last-child)::after { content: ""; position: absolute; top: 50%; left: 100%; width: 40px; height: 2px; background: var(--line); }
+.flowx li:not(:last-child)::before { content: ""; position: absolute; top: calc(50% - 4px); left: 100%; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); z-index: 1; animation: hopx 1.8s linear infinite; }
+.flowx li:nth-child(2)::before { animation-delay: .35s; } .flowx li:nth-child(3)::before { animation-delay: .7s; } .flowx li:nth-child(4)::before { animation-delay: 1.05s; } .flowx li:nth-child(5)::before { animation-delay: 1.4s; }
+@keyframes hopx { 0% { transform: translateX(0); opacity: 0; } 15%, 85% { opacity: 1; } 100% { transform: translateX(32px); opacity: 0; } }
+@keyframes hopy { 0% { transform: translateY(0); opacity: 0; } 15%, 85% { opacity: 1; } 100% { transform: translateY(20px); opacity: 0; } }
+.flowx.v { grid-template-columns: 1fr; gap: 28px; max-width: 420px; }
+.flowx.v li:not(:last-child)::after { top: 100%; left: 50%; width: 2px; height: 28px; }
+.flowx.v li:not(:last-child)::before { top: 100%; left: calc(50% - 4px); animation-name: hopy; }
+@media (max-width: 900px) {
+  .flowx { grid-template-columns: 1fr; gap: 28px; max-width: 520px; margin-inline: auto; }
+  .flowx li:not(:last-child)::after { top: 100%; left: 50%; width: 2px; height: 28px; }
+  .flowx li:not(:last-child)::before { top: 100%; left: calc(50% - 4px); animation-name: hopy; }
+}
+/* 사례 페이지 구조도 — 폰에선 SVG 대신 세로 흐름 */
+.only-m { display: none; }
+@media (max-width: 720px) { .figure.wide { display: none; } .only-m { display: grid; } }
+@media (prefers-reduced-motion: reduce) { .flowx li::before { animation: none; opacity: 0; } }
+
+/* 폰에선 옆으로 미는 칸을 두지 않는다 */
+@media (max-width: 640px) {
+  pre { white-space: pre-wrap; word-break: break-word; }
+  .shots { grid-template-columns: min(280px, 80vw); }
+}
+@media (max-width: 400px) { .nav a { padding: 6px 7px; font-size: 13.5px; } }
+@media (max-width: 340px) { .top .wrap { gap: 6px; } .nav { gap: 0; } .nav a { padding: 6px 5px; font-size: 13px; } }
 
 footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--text-3); font-size: 14px; }
 footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }

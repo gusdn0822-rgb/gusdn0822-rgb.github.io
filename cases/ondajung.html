@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>온다정 사례 — 남현우</title>
-<meta name="description" content="시니어클럽 출퇴근·전화 SaaS 온다정: 동시 통화 부하 시험, 여러 기관이 함께 쓰는 구조, 명단 엑셀 변환기.">
+<title>온다정 — 남현우</title>
+<meta name="description" content="노인 일자리 출퇴근·전화 서비스 온다정: 동시 통화 부하 테스트, 여러 기관이 함께 쓰는 구조, 명단 엑셀 변환기.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -12,9 +12,9 @@
 <header class="top">
   <div class="wrap">
     <a class="brand" href="../">남현우</a>
-    <nav class="nav" aria-label="사례">
+    <nav class="nav" aria-label="프로젝트">
       <a href="ondajung.html" aria-current="page">온다정</a>
-      <a href="staff-app.html">직원 앱</a>
+      <a href="staff-app.html">담당자 앱</a>
       <a href="agentone.html">에이전트원</a>
       <a href="collab.html">협업툴</a>
     </nav>
@@ -23,90 +23,98 @@
 
 <main class="wrap">
   <article class="case">
-    <p class="crumb"><a href="../#cases">← 사례 목록</a></p>
-    <h1>온다정 — 시니어클럽 출퇴근·전화 서비스</h1>
-    <p class="lead">노인일자리 수행기관(시니어클럽)에서 어르신 수천 명의 출퇴근을 매일 기록하고, 그 기록으로 활동일지와 급여까지 이어지게 하는 서비스입니다. 스마트폰이 어려운 어르신은 <b>전화 한 통</b>으로, 그 밖의 분은 <b>링크</b>로 출퇴근합니다.</p>
+    <p class="crumb"><a href="../#cases">← 프로젝트 목록</a></p>
+    <h1>온다정 — 노인 일자리 출퇴근·전화 서비스</h1>
+    <p class="lead">노인 일자리 기관(시니어클럽)에서 어르신 수천 명의 출퇴근을 매일 기록하고, 그 기록을 활동일지와 급여까지 이어 주는 서비스입니다. 스마트폰이 어려운 어르신은 <b>전화 한 통</b>으로, 그 밖의 분은 <b>링크</b>로 출퇴근합니다.</p>
     <ul class="meta">
-      <li><small>역할</small>서비스개발자 — 백엔드·화면·교환기·서버 운영</li>
+      <li><small>역할</small>서비스개발자 — 백엔드·화면·전화 교환기·서버 운영</li>
       <li><small>상태</small>여러 기관에서 운영 중</li>
       <li><small>기술</small>FastAPI · PostgreSQL · Asterisk · Kamailio · Flutter</li>
-      <li><small>기간</small>2026 ~ 지금</li>
+      <li><small>기간</small>2026 — 현재</li>
     </ul>
   </article>
 
   <div class="block">
     <h2>구조</h2>
-    <p>기관마다 전화번호와 교환기가 따로 있고, 모든 자료는 기관 단위로 갈립니다. 전화 출근은 교환기에서 출근 API 까지 한 번에 이어집니다.</p>
-    <figure class="figure">
-      <svg viewBox="0 0 860 300" role="img" aria-label="온다정 구조도: 어르신 전화와 링크, 담당자 웹이 백엔드 API 와 DB 로 모인다">
+    <p>기관마다 전화번호와 교환기를 따로 두고, 모든 데이터는 기관 단위로 나뉩니다. 전화 출근은 교환기에서 출근 API까지 한 번에 이어집니다.</p>
+    <figure class="figure wide">
+      <svg viewBox="0 0 860 300" role="img" aria-label="온다정 구조: 어르신 전화와 링크, 담당자 웹이 백엔드 API와 데이터베이스로 모인다">
         <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="dg-s"/></marker></defs>
-        <rect class="dg-box" x="10" y="20" width="150" height="56" rx="10"/><text class="dg-t" x="85" y="44" text-anchor="middle">어르신 전화</text><text class="dg-s" x="85" y="62" text-anchor="middle">기관 출근 번호로 한 통</text>
+        <rect class="dg-box" x="10" y="20" width="150" height="56" rx="10"/><text class="dg-t" x="85" y="44" text-anchor="middle">어르신 전화</text><text class="dg-s" x="85" y="62" text-anchor="middle">기관 출근 번호로 전화</text>
         <rect class="dg-box" x="200" y="20" width="150" height="56" rx="10"/><text class="dg-t" x="275" y="44" text-anchor="middle">SIP 중계 (Kamailio)</text><text class="dg-s" x="275" y="62" text-anchor="middle">번호 → 기관 → 교환기</text>
-        <rect class="dg-box" x="390" y="20" width="170" height="56" rx="10"/><text class="dg-t" x="475" y="44" text-anchor="middle">기관별 교환기 (Asterisk)</text><text class="dg-s" x="475" y="62" text-anchor="middle">안내음 · 연결 · 녹음</text>
-        <rect class="dg-key" x="600" y="20" width="150" height="56" rx="10"/><text class="dg-t" x="675" y="44" text-anchor="middle">FastAGI 상주 서버</text><text class="dg-s" x="675" y="62" text-anchor="middle">연결 미리 맺어 둠</text>
+        <rect class="dg-box" x="390" y="20" width="170" height="56" rx="10"/><text class="dg-t" x="475" y="44" text-anchor="middle">기관별 교환기 (Asterisk)</text><text class="dg-s" x="475" y="62" text-anchor="middle">안내 음성 · 연결 · 녹음</text>
+        <rect class="dg-key" x="600" y="20" width="150" height="56" rx="10"/><text class="dg-t" x="675" y="44" text-anchor="middle">FastAGI 상주 서버</text><text class="dg-s" x="675" y="62" text-anchor="middle">연결을 미리 열어 둠</text>
         <path class="dg-line" d="M160 48H198" marker-end="url(#a)"/>
         <path class="dg-line" d="M350 48H388" marker-end="url(#a)"/>
         <path class="dg-line" d="M560 48H598" marker-end="url(#a)"/>
         <rect class="dg-box" x="10" y="130" width="150" height="56" rx="10"/><text class="dg-t" x="85" y="154" text-anchor="middle">어르신 링크 출근</text><text class="dg-s" x="85" y="172" text-anchor="middle">위치 반경 확인</text>
-        <rect class="dg-box" x="10" y="220" width="150" height="56" rx="10"/><text class="dg-t" x="85" y="244" text-anchor="middle">담당자 웹 · 직원 앱</text><text class="dg-s" x="85" y="262" text-anchor="middle">명단 · 근무 · 급여 · 문자</text>
-        <rect class="dg-key" x="390" y="160" width="170" height="70" rx="10"/><text class="dg-t" x="475" y="188" text-anchor="middle">백엔드 API (FastAPI)</text><text class="dg-s" x="475" y="206" text-anchor="middle">모든 질의에 기관 조건</text>
-        <rect class="dg-box" x="640" y="160" width="140" height="70" rx="10"/><text class="dg-t" x="710" y="188" text-anchor="middle">PostgreSQL</text><text class="dg-s" x="710" y="206" text-anchor="middle">출퇴근 원장 · 급여</text>
+        <rect class="dg-box" x="10" y="220" width="150" height="56" rx="10"/><text class="dg-t" x="85" y="244" text-anchor="middle">담당자 웹 · 앱</text><text class="dg-s" x="85" y="262" text-anchor="middle">명단 · 근무 · 급여 · 문자</text>
+        <rect class="dg-key" x="390" y="160" width="170" height="70" rx="10"/><text class="dg-t" x="475" y="188" text-anchor="middle">백엔드 API (FastAPI)</text><text class="dg-s" x="475" y="206" text-anchor="middle">모든 조회에 기관 조건</text>
+        <rect class="dg-box" x="640" y="160" width="140" height="70" rx="10"/><text class="dg-t" x="710" y="188" text-anchor="middle">PostgreSQL</text><text class="dg-s" x="710" y="206" text-anchor="middle">출퇴근 기록 · 급여</text>
         <path class="dg-line" d="M675 76V120H500V158" marker-end="url(#a)"/>
         <path class="dg-line" d="M160 158H300V185H388" marker-end="url(#a)"/>
         <path class="dg-line" d="M160 248H300V205H388" marker-end="url(#a)"/>
         <path class="dg-line" d="M560 195H638" marker-end="url(#a)"/>
       </svg>
-      <figcaption>개념도입니다. 서버 이름·주소와 세부 설정은 뺐습니다.</figcaption>
+      <figcaption>개념도입니다. 서버 이름, 주소, 세부 설정은 뺐습니다.</figcaption>
     </figure>
+    <ol class="flowx v only-m" aria-label="온다정 구조">
+      <li><b>어르신 전화</b><span>기관 출근 번호로 전화</span></li>
+      <li><b>SIP 중계 (Kamailio)</b><span>번호로 기관과 교환기 찾기</span></li>
+      <li><b>기관별 교환기 (Asterisk)</b><span>안내 음성 · 연결 · 녹음</span></li>
+      <li class="key"><b>FastAGI 상주 서버</b><span>연결을 미리 열어 둠</span></li>
+      <li class="key"><b>백엔드 API (FastAPI)</b><span>링크 출근과 담당자 웹·앱도 같은 API로</span></li>
+      <li><b>PostgreSQL</b><span>출퇴근 기록 · 급여</span></li>
+    </ol>
   </div>
 
   <div class="block">
-    <h2>한 일</h2>
+    <h2>주요 작업</h2>
 
     <div class="story">
-      <h3>1. 출근 시간 몰림을 미리 재서 대비하다</h3>
+      <h3>1. 출근 시간대 전화 몰림에 미리 대비</h3>
       <dl>
-        <dt>계기</dt><dd>출근 시각엔 전화가 한꺼번에 들어옵니다. 어르신은 받은 뒤 아무 소리가 없으면 끊긴 줄 알기 때문에, <strong>몰릴 때 첫 안내가 얼마나 늦어지는지</strong>를 행사 전에 재 보기로 했습니다.</dd>
-        <dt>방법</dt><dd>바깥 전화 없이 교환기 안에서 가짜 통화를 만들고(가짜 참여자 300명), 0.2초마다 채널 상태를 떠서 단계별 시간을 쟀습니다. 동시 90통에서 첫 안내까지 최대 20.9초가 걸렸고, 늘어지는 곳은 <strong>통화마다 스크립트를 새로 띄우고 서버 연결을 새로 맺는 구간</strong>이었습니다.</dd>
-        <dt>한 일</dt><dd>통화마다 띄우던 스크립트를 <strong>상주하는 FastAGI 서버</strong>로 바꾸고, 서버 연결을 미리 맺어 두는 풀(40개)과 오래된 연결을 갈아 주는 지키미를 넣었습니다. 상주 서버가 멈추면 예전 방식으로 자동으로 넘어가게 해 두었습니다.</dd>
-        <dt>결과</dt><dd class="result">동시 90통에서 첫 안내까지 <b>최대 20.9초 → 4.6초</b>. 300통까지 끊긴 통화 0. <a href="../posts/fastagi-load-test.html">자세한 글 →</a></dd>
+        <dt>배경</dt><dd>출근 시각에는 전화가 한꺼번에 들어옵니다. 어르신은 전화를 받은 뒤 아무 소리가 없으면 끊긴 줄 알기 때문에, <strong>전화가 몰릴 때 첫 안내가 얼마나 늦어지는지</strong>를 행사 전에 측정했습니다.</dd>
+        <dt>방법</dt><dd>외부 회선 없이 교환기 안에서 가상 통화를 만들고(가상 참여자 300명), 0.2초마다 채널 상태를 기록해 단계별 시간을 측정했습니다. 동시 90통일 때 첫 안내까지 최대 20.9초가 걸렸고, 지연은 <strong>통화마다 스크립트를 새로 실행하고 서버 연결을 새로 맺는 구간</strong>에서 생겼습니다.</dd>
+        <dt>개선</dt><dd>통화마다 실행하던 스크립트를 <strong>상주하는 FastAGI 서버</strong>로 바꾸고, 서버 연결 40개를 미리 열어 두는 풀과 오래된 연결을 교체하는 점검 작업을 넣었습니다. 상주 서버에 문제가 생기면 기존 방식으로 자동 전환되도록 했습니다.</dd>
+        <dt>결과</dt><dd class="result">동시 90통에서 첫 안내까지 <b>최대 20.9초 → 4.6초</b>. 300통까지 끊긴 통화 0건. <a href="../posts/fastagi-load-test.html">자세한 글 보기 →</a></dd>
       </dl>
     </div>
 
     <div class="story">
       <h3>2. 여러 기관이 함께 쓰는 구조</h3>
       <dl>
-        <dt>설계</dt><dd>기관마다 전화번호·교환기·SIP 경로가 따로이고, 모든 자료는 기관 id 로 갈립니다. 권한 범위와 별개로 <strong>모든 질의에 기관 조건을 언제나 거는 함수</strong>를 두고, 기관을 모르면 열지 않고 닫습니다. 기관 이름은 실제로 같은 이름이 여럿 있어서 이름이 아니라 id 로만 가릅니다.</dd>
-        <dt>원칙</dt><dd>기능은 모든 기관 공통이고, 기관마다 다른 운영 방식은 코드가 아니라 명단 엑셀의 옵션 칸으로만 켭니다. 새 기관을 붙일 때 코드를 고치지 않습니다.</dd>
-        <dt>결과</dt><dd class="result">"INSERT·SELECT·UPDATE·DELETE 에 항상 기관 조건"을 <b>팀 코드 규칙</b>으로 문서화해, 새 코드도 같은 자로 점검합니다.</dd>
+        <dt>설계</dt><dd>기관마다 전화번호·교환기·SIP 경로를 따로 두고, 모든 데이터는 기관 ID로 구분합니다. 권한 범위와 별개로 <strong>모든 조회에 기관 조건을 항상 거는 함수</strong>를 두었고, 기관을 확인할 수 없으면 조회하지 않습니다. 같은 이름의 기관이 실제로 여럿 있어서, 이름이 아니라 ID로만 구분합니다.</dd>
+        <dt>원칙</dt><dd>기능은 모든 기관에 공통으로 제공하고, 기관마다 다른 운영 방식은 코드가 아니라 명단 엑셀의 옵션 열로 설정합니다. 새 기관을 추가할 때 코드를 수정하지 않습니다.</dd>
+        <dt>결과</dt><dd class="result">"INSERT·SELECT·UPDATE·DELETE에는 항상 기관 조건"을 <b>팀 코드 규칙</b>으로 문서화해, 새 코드도 같은 기준으로 점검합니다.</dd>
       </dl>
     </div>
 
     <div class="story">
-      <h3>3. 기관마다 다른 명단 엑셀을 한 양식으로</h3>
+      <h3>3. 기관마다 다른 명단 엑셀을 하나의 양식으로</h3>
       <dl>
-        <dt>계기</dt><dd>기관마다 쓰던 명단 엑셀 모양이 달라(옛 형식 5가지, 통합 양식 7장) 담당자가 손으로 맞추던 일을 줄이고 싶었습니다.</dd>
-        <dt>한 일</dt><dd>통합 양식 변환기를 만들고, 기관 파일을 가명으로 바꾼 사본으로 <strong>회귀시험</strong>을 묶었습니다. 같은 파일을 두 번 올려도 결과가 같게 하고, 반영 직전·직후 자료를 짝으로 남겨 그 기관만 되돌릴 수 있게 했습니다. 모르는 머리글은 화면에서 먼저 알려 줍니다.</dd>
-        <dt>결과</dt><dd class="result">회귀시험 <b>85건 통과 · 실패 0</b>. 양식을 바꿀 땐 이 시험부터 돌립니다.</dd>
+        <dt>배경</dt><dd>기관마다 쓰던 명단 엑셀 형식이 달라(기존 형식 5가지, 통합 양식 7개 시트) 담당자가 직접 맞추던 작업을 줄이고 싶었습니다.</dd>
+        <dt>개선</dt><dd>통합 양식 변환기를 만들고, 기관 파일을 가명 처리한 사본으로 <strong>회귀 테스트</strong>를 구성했습니다. 같은 파일을 두 번 올려도 결과가 같게 하고, 반영 직전·직후 데이터를 함께 백업해 해당 기관만 롤백할 수 있게 했습니다. 인식하지 못한 열이 있으면 화면에서 먼저 알려 줍니다.</dd>
+        <dt>결과</dt><dd class="result">회귀 테스트 <b>85건 통과 · 실패 0</b>. 양식을 바꿀 때는 이 테스트부터 실행합니다.</dd>
       </dl>
     </div>
 
     <div class="story">
       <h3>4. 클라우드 이전</h3>
       <dl>
-        <dt>한 일</dt><dd>서비스 서버를 오라클 클라우드로 옮기며 전환과 되돌리기를 스크립트로 만들고, 전환 전후 자료 숫자를 견줘 확인했습니다. 담당자가 밖에서 쓰는 <a href="staff-app.html">직원용 앱</a>도 만들었습니다.</dd>
+        <dt>작업</dt><dd>서비스 서버를 오라클 클라우드로 옮기면서 전환과 롤백 절차를 스크립트로 만들고, 전환 전후 데이터 건수를 대조했습니다. 현장 담당자를 위한 <a href="staff-app.html">담당자 앱</a>도 만들었습니다.</dd>
       </dl>
     </div>
   </div>
 
   <div class="block">
-    <h2>배운 것</h2>
+    <h2>배운 점</h2>
     <ul>
-      <li>어르신 서비스에서는 '처리됐다'보다 <b>'들었다'</b>가 중요합니다. 기록이 맞아도 긴 침묵은 실패라서, 행사 전에 몰림을 재 봅니다.</li>
-      <li>여러 기관이 쓰는 서비스는 경계를 첫날부터 코드 규칙으로 둡니다.</li>
-      <li>엑셀처럼 사람이 만드는 입력은 회귀시험으로 지킵니다.</li>
+      <li>어르신 서비스에서는 '처리됐다'보다 <b>'들었다'</b>가 중요합니다. 기록이 맞아도 긴 침묵은 실패라서, 행사 전에 몰림 상황을 측정합니다.</li>
+      <li>여러 기관이 쓰는 서비스는 경계를 처음부터 코드 규칙으로 둡니다.</li>
+      <li>엑셀처럼 사람이 만드는 입력은 회귀 테스트로 지킵니다.</li>
     </ul>
-    <p class="note">회사 서비스라 코드는 비공개 저장소에 있습니다. 수치는 시험·운영 중 직접 잰 값이고, 고객 기관 정보는 넣지 않았습니다.</p>
+    <p class="note">회사 서비스라 코드는 비공개 저장소에 있습니다. 숫자는 테스트와 운영 중 직접 측정한 값이고, 고객 기관 정보는 넣지 않았습니다.</p>
   </div>
 </main>
 

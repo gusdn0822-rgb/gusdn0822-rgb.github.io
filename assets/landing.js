@@ -141,9 +141,9 @@
   const why = (name, q) => {
     const raw = q.trim().toLowerCase();
     if (!raw) return '';
-    if (name.toLowerCase().includes(raw)) return '그대로';
+    if (name.toLowerCase().includes(raw)) return '일치';
     if (/^[ㄱ-ㅎ\s]+$/.test(raw)) return name.split(/\s+/).some(w => choseong(w).includes(raw.replace(/\s/g, ''))) ? '초성' : null;
-    if (/^[a-z\s]+$/i.test(raw)) { const k = engToKo(q.trim()); return k && name.includes(k) ? `한영 오타 → ${k}` : null; }
+    if (/^[a-z\s]+$/i.test(raw)) { const k = engToKo(q.trim()); return k && name.includes(k) ? `한영 변환 · ${k}` : null; }
     return null;
   };
   $$('.palette').forEach(pal => {
@@ -155,7 +155,7 @@
       // 비어 있을 땐 넷만 — 열 명을 다 보이면 칸 안에 스크롤바가 생겨 '쳐 보라'는 칸처럼 안 보인다
       list.innerHTML = rows.length ? rows.slice(0, q.trim() ? 6 : 4).map(p =>
         `<li><span class="av">${p.n[0]}</span><span><span class="nm">${p.n}</span><br><span class="sub2">${p.s}</span></span>${p.w ? `<span class="why">${p.w}</span>` : ''}</li>`).join('')
-        : '<li class="empty">맞는 사람이 없어요</li>';
+        : '<li class="empty">검색 결과가 없어요</li>';
     };
     input.addEventListener('input', draw);
     pal.parentElement.querySelectorAll('.tries button').forEach(b => b.addEventListener('click', () => { input.value = b.dataset.q; draw(); input.focus(); }));
