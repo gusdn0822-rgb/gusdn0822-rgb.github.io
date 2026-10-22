@@ -1,0 +1,149 @@
+/* 남현우 포트폴리오 — 랜딩 (2026-10-23, 토스 같은 스크롤 이야기형)
+   색은 style.css :root 토큰을 그대로 쓴다. 여기는 배치·크기·움직임만. */
+
+body.landing { --side: clamp(16px, 4vw, 40px); --lh-tight: 1.22; letter-spacing: -.02em; }
+.landing .wrap { max-width: 1120px; }
+
+/* 맨 위 진행 줄 */
+.progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 30; pointer-events: none; }
+.progress i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); }
+
+/* 머리줄 */
+.landing .top { background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom-color: transparent; }
+.landing .top.scrolled { border-bottom-color: var(--line); }
+.landing .top .wrap { min-height: 60px; }
+.landing .nav a { font-size: 15px; font-weight: 500; color: var(--text-2); }
+.pill { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 999px; background: var(--surface-2); color: var(--text); font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; flex: none; }
+@media (max-width: 640px) { .landing .top .pill { display: none; } }
+
+/* ① 첫 화면 — 둥근 큰 카드 + 큰 흰 글씨 + 가운데 폰 */
+.hero-l { padding: 8px var(--side) 0; }
+.stage-card {
+  position: relative; overflow: hidden; border-radius: clamp(20px, 3vw, 32px);
+  min-height: min(86vh, 820px); display: grid; align-items: end;
+  background:
+    radial-gradient(60% 70% at 72% 30%, rgba(69, 147, 252, .55), transparent 60%),
+    radial-gradient(50% 60% at 15% 85%, rgba(49, 130, 246, .35), transparent 60%),
+    linear-gradient(160deg, #0d1b33 0%, var(--ink-hero) 60%, #05080f 100%);
+  color: #fff; isolation: isolate;
+}
+.stage-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5, 8, 15, .65), transparent 45%); z-index: 0; }
+.stage-copy { position: relative; z-index: 2; padding: clamp(24px, 5vw, 64px); }
+.stage-copy .eyebrow { color: #90c2ff; font-size: 15px; font-weight: 600; margin: 0 0 14px; letter-spacing: 0; }
+.stage-title { margin: 0; font-size: clamp(38px, 6.6vw, 80px); line-height: var(--lh-tight); font-weight: 700; letter-spacing: -.035em; }
+.stage-title span { display: block; }
+/* 좁은 폰에선 '어르신의 / 전화 한 통부터' 로 끊는다 — 그냥 두면 '한 / 통부터' 로 어색하게 끊긴다 */
+.mbr { display: none; }
+@media (max-width: 520px) { .mbr { display: block; } }
+.stage-sub { margin: 20px 0 0; max-width: 34em; font-size: clamp(16px, 1.6vw, 19px); line-height: 1.6; color: rgba(255, 255, 255, .78); }
+.stage-cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+.btn-l { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 22px; border-radius: 16px; font-size: 17px; font-weight: 600; text-decoration: none; }
+.btn-l.blue { background: var(--accent); color: #fff; }
+.btn-l.ghost { background: rgba(255, 255, 255, .12); color: #fff; backdrop-filter: blur(6px); }
+.btn-l.grey { background: var(--surface-2); color: var(--text); }
+.stage-phone { position: absolute; z-index: 1; right: clamp(-40px, 6vw, 96px); top: 50%; transform: translateY(-50%); width: clamp(220px, 24vw, 300px); animation: float 7s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(-50%); } 50% { transform: translateY(calc(-50% - 12px)); } }
+@media (max-width: 860px) {
+  .stage-card { align-items: start; min-height: auto; }
+  .stage-phone { position: relative; right: auto; top: auto; transform: none; margin: 8px auto 0; width: min(240px, 62vw); animation: none; }
+  .stage-copy { padding-bottom: 8px; }
+  .stage-card { display: flex; flex-direction: column; padding-bottom: 28px; }
+}
+
+/* 폰 틀 */
+.phone { position: relative; border-radius: 42px; padding: 10px; background: #0b0d10; box-shadow: 0 30px 80px rgba(0, 0, 0, .45), inset 0 0 0 1px rgba(255, 255, 255, .08); }
+.phone .screen { position: relative; border-radius: 32px; overflow: hidden; aspect-ratio: 520 / 1125; background: #fff; }
+.phone .screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .6s ease, transform .6s ease; }
+.phone .screen img:not(.on) { opacity: 0; transform: scale(1.02); }
+.phone::before { content: ""; position: absolute; top: 18px; left: 50%; width: 30%; height: 22px; transform: translateX(-50%); border-radius: 999px; background: #0b0d10; z-index: 2; }
+
+/* 구획 공통 — 크고 넉넉하게 */
+.sec { padding: clamp(80px, 12vw, 160px) 0; border: 0; }
+.sec-head { max-width: 760px; margin: 0 0 clamp(36px, 6vw, 64px); }
+.kicker { color: var(--accent); font-weight: 700; font-size: 17px; margin: 0 0 14px; letter-spacing: 0; }
+.big { margin: 0; font-size: clamp(32px, 4.6vw, 56px); line-height: 1.25; font-weight: 700; letter-spacing: -.03em; }
+.lede { margin: 18px 0 0; color: var(--text-2); font-size: clamp(17px, 1.7vw, 20px); line-height: 1.65; }
+.center { text-align: center; margin-left: auto; margin-right: auto; }
+
+/* ② 스크롤 이야기 — 왼쪽 글이 넘어가고 오른쪽 폰은 붙어 있다 */
+.story-l { display: grid; grid-template-columns: 1fr minmax(240px, 300px); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.steps { display: grid; }
+.step { min-height: 72vh; display: flex; flex-direction: column; justify-content: center; opacity: .22; transition: opacity .5s ease; }
+.step.on { opacity: 1; }
+.step .num { color: var(--accent); font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+.step h3 { margin: 0; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.3; letter-spacing: -.03em; }
+.step p { margin: 16px 0 0; color: var(--text-2); font-size: 18px; line-height: 1.7; max-width: 30em; }
+.step .shot-m { display: none; }
+/* 폰 높이(폭 300 → 약 670)가 화면 가운데 오게, 머리줄(60) 밑으로는 안 올라가게 */
+.sticky-phone { position: sticky; top: max(76px, calc(50vh - 345px)); }
+@media (max-height: 760px) { .sticky-phone { width: 250px; justify-self: center; } }
+.dots { display: flex; gap: 6px; justify-content: center; margin-top: 18px; }
+.dots i { width: 6px; height: 6px; border-radius: 99px; background: var(--line); transition: width .3s, background .3s; }
+.dots i.on { width: 20px; background: var(--accent); }
+@media (max-width: 860px) {
+  .story-l { grid-template-columns: 1fr; }
+  .sticky-phone { display: none; }
+  .step { min-height: auto; opacity: 1; padding: 28px 0; }
+  .step .shot-m { display: block; width: min(260px, 70vw); margin: 22px auto 0; }
+}
+
+/* ③ 숫자 — 크게, 스크롤하면 바뀌어 간다 */
+.stats-l { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.stat { background: var(--surface-2); border-radius: 28px; padding: clamp(24px, 3.4vw, 40px); }
+.stat .label { color: var(--text-2); font-size: 17px; font-weight: 600; margin: 0 0 18px; }
+.stat .value { font-size: clamp(44px, 6vw, 76px); font-weight: 800; letter-spacing: -.04em; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.stat .value small { font-size: .45em; font-weight: 700; margin-left: 4px; color: var(--text-2); }
+.stat .was { color: var(--text-3); font-size: 17px; margin: 14px 0 0; }
+.stat .was s { text-decoration-thickness: 1px; }
+@media (max-width: 720px) { .stats-l { grid-template-columns: 1fr; } }
+
+/* ④ 사례 — 큰 둥근 카드, 번갈아 */
+.cases-l { display: grid; gap: 20px; }
+.case-l { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(20px, 4vw, 56px); align-items: center; background: var(--surface-2); border-radius: 32px; padding: clamp(28px, 4.6vw, 56px); color: inherit; text-decoration: none; transition: transform .25s ease; }
+.case-l:hover { transform: translateY(-4px); }
+.case-l .tag { color: var(--accent); font-weight: 700; font-size: 15px; margin: 0 0 10px; }
+.case-l h3 { margin: 0; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.3; letter-spacing: -.03em; }
+.case-l p { margin: 14px 0 0; color: var(--text-2); font-size: 17px; line-height: 1.7; }
+.case-l .go { display: inline-block; margin-top: 22px; font-weight: 700; color: var(--accent-ink); }
+.case-l .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.case-l .facts li { background: var(--surface); border-radius: 18px; padding: 16px 18px; font-size: 16px; color: var(--text-2); }
+.case-l .facts b { display: block; color: var(--text); font-size: 22px; letter-spacing: -.02em; margin-bottom: 2px; }
+@media (max-width: 860px) { .case-l { grid-template-columns: 1fr; } }
+
+/* ⑤ 일하는 방식 — 어두운 띠, 줄마다 밝아진다 */
+.dark-band { background: #101317; color: #f9fafb; border-radius: clamp(24px, 3vw, 40px); margin: 0 var(--side); }
+.dark-band .kicker { color: #90c2ff; }
+.lines { list-style: none; margin: 0; padding: 0; }
+.lines li { font-size: clamp(26px, 3.8vw, 48px); font-weight: 700; line-height: 1.35; letter-spacing: -.03em; padding: 10px 0; color: rgba(249, 250, 251, .22); transition: color .5s ease; }
+.lines li.on { color: #f9fafb; }
+.lines li span { display: block; font-size: clamp(15px, 1.5vw, 18px); font-weight: 400; letter-spacing: -.01em; color: rgba(249, 250, 251, .6); margin-top: 6px; line-height: 1.6; }
+.lines li:not(.on) span { color: rgba(249, 250, 251, .18); }
+
+/* ⑥ 글·프로젝트·기술 */
+.list-l { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.tile { display: block; background: var(--surface-2); border-radius: 24px; padding: 26px; color: inherit; text-decoration: none; transition: transform .25s ease; }
+.tile:hover { transform: translateY(-3px); }
+.tile .t-kind { color: var(--accent); font-weight: 700; font-size: 14px; }
+.tile h4 { margin: 8px 0 8px; font-size: 21px; line-height: 1.4; letter-spacing: -.02em; }
+.tile p { margin: 0; color: var(--text-2); font-size: 16px; line-height: 1.6; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chips span { padding: 10px 16px; border-radius: 999px; background: var(--surface-2); font-weight: 600; font-size: 16px; }
+.chips span b { color: var(--text-3); font-weight: 500; margin-left: 6px; }
+
+/* ⑦ 마지막 — 연락 */
+.closing { text-align: center; }
+.closing .stage-cta { justify-content: center; }
+
+/* 스크롤에 나타나기 — 자바스크립트가 있을 때만 숨겼다 보여 준다(없으면 처음부터 보임) */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2, .7, .2, 1), transform .8s cubic-bezier(.2, .7, .2, 1); }
+.js .reveal.in { opacity: 1; transform: none; }
+.js .reveal.d1 { transition-delay: .08s; } .js .reveal.d2 { transition-delay: .16s; } .js .reveal.d3 { transition-delay: .24s; }
+.js .stage-title span { opacity: 0; transform: translateY(24px); animation: rise .9s cubic-bezier(.2, .7, .2, 1) forwards; }
+.js .stage-title span:nth-child(2) { animation-delay: .25s; } .js .stage-title span:nth-child(3) { animation-delay: .5s; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal, .js .stage-title span { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
+  .stage-phone { animation: none; }
+  .step, .lines li { opacity: 1 !important; color: inherit; }
+}

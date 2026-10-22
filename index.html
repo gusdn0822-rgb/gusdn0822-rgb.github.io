@@ -4,180 +4,251 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>남현우 — 서비스개발자</title>
-<meta name="description" content="전화 한 통으로 출근하는 어르신부터 전화를 대신 받는 AI 상담원까지. 실제로 쓰이는 서비스를 만들고 운영하는 서비스개발자 남현우의 포트폴리오.">
+<meta name="description" content="어르신의 전화 한 통부터 AI 상담원까지, 매일 쓰이는 서비스를 만들고 운영하는 서비스개발자 남현우의 포트폴리오.">
 <meta property="og:title" content="남현우 — 서비스개발자">
-<meta property="og:description" content="시니어클럽 출퇴근·전화 SaaS, AI 전화 상담원, 사내 협업툴을 만들고 운영합니다.">
+<meta property="og:description" content="시니어클럽 출퇴근·전화 SaaS, 직원 앱, AI 전화 상담원, 사내 협업툴을 만들고 운영합니다.">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#0b1220">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="assets/style.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/landing.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233182f6'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'%3EH%3C/text%3E%3C/svg%3E">
+<script src="assets/landing.js" defer></script>
 </head>
-<body>
+<body class="landing">
+<div class="progress" aria-hidden="true"><i></i></div>
+
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#">남현우</a>
     <nav class="nav" aria-label="바로가기">
+      <a href="#story">이야기</a>
+      <a href="#numbers">숫자</a>
       <a href="#cases">사례</a>
       <a href="#posts">글</a>
-      <a href="#projects">프로젝트</a>
-      <a href="#skills">기술</a>
-      <a href="#how">일하는 방식</a>
-      <a href="#contact">연락</a>
     </nav>
+    <a class="pill" href="#contact">연락하기</a>
   </div>
 </header>
 
 <main>
-  <div class="wrap hero">
-    <p class="eyebrow">서비스개발자 · Pureprompt · 제주</p>
-    <h1>전화 한 통으로 출근하는 어르신부터,<br>전화를 대신 받는 AI 상담원까지.</h1>
-    <p class="lead">기획서가 아니라 <b>실제로 매일 쓰이는 서비스</b>를 만들고 운영합니다. 웹 화면에서 교환기(Asterisk)·SIP 중계·클라우드 서버까지 한 줄로 이어지는 곳을 직접 짓고, 문제가 생기면 수치로 재서 고칩니다.</p>
-    <div class="cta">
-      <a class="btn primary" href="#cases">사례 보기</a>
-      <a class="btn" href="https://github.com/gusdn0822-rgb">GitHub</a>
+  <!-- ① 첫 화면 -->
+  <section class="hero-l" aria-label="소개">
+    <div class="stage-card">
+      <div class="stage-copy">
+        <p class="eyebrow">서비스개발자 · Pureprompt · 제주</p>
+        <h1 class="stage-title"><span>어르신의 <br class="mbr">전화 한 통부터</span><span>AI 상담원까지,</span><span>매일 쓰이는 서비스.</span></h1>
+        <p class="stage-sub">웹 화면에서 교환기·SIP 중계·클라우드 서버까지 이어지는 곳을 직접 짓고, 문제가 생기기 전에 수치로 재서 고칩니다.</p>
+        <div class="stage-cta">
+          <a class="btn-l blue" href="#cases">사례 보기</a>
+          <a class="btn-l ghost" href="https://github.com/gusdn0822-rgb">GitHub</a>
+        </div>
+      </div>
+      <div class="stage-phone" aria-hidden="true">
+        <div class="phone"><div class="screen"><img class="on" src="assets/img/app-incoming.webp" alt="" width="520" height="1125"></div></div>
+      </div>
     </div>
-    <ul class="proof" aria-label="대표 결과">
-      <li><b><span class="from">20.9초</span> → 4.6초</b><span>동시 90통 부하 시험에서, 전화를 받고 첫 안내가 나오기까지 가장 오래 조용했던 시간</span></li>
-      <li><b><span class="from">5초</span> → 1.4초</b><span>AI 상담원 시제품이 고객 말이 끝난 뒤 대답하기까지 걸리는 시간</span></li>
-      <li><b><span class="from">57</span> → 71/72</b><span>AI 상담원 상황별 대화 시험(조용함·끼어들기·맞장구·가격 질문) 통과 수</span></li>
-      <li><b>85 / 85</b><span>기관마다 다른 명단 엑셀을 한 양식으로 바꾸는 변환기의 회귀시험 통과</span></li>
-    </ul>
-  </div>
+  </section>
 
-  <section id="cases">
+  <!-- ② 스크롤 이야기 -->
+  <section class="sec" id="story">
     <div class="wrap">
-      <h2>사례</h2>
-      <p class="sub">회사 코드는 비공개 저장소에 있어서, 여기서는 구조와 판단, 잰 숫자를 공개합니다. 각 사례는 문제 → 한 일 → 결과 순서입니다.</p>
-      <div class="cards">
-        <a class="card" href="cases/ondajung.html">
-          <span class="kind">B2G SaaS · 운영 중</span>
-          <h3>온다정 — 시니어클럽 출퇴근·전화 서비스</h3>
-          <p>스마트폰이 어려운 어르신은 전화 한 통으로, 그 밖의 분은 링크로 출퇴근합니다. 담당자는 명단·근무·활동일지·급여·문자를 한 화면에서 다룹니다.</p>
-          <ul>
-            <li>동시 90통 부하 시험: 첫 안내까지 최대 20.9초 → 4.6초</li>
-            <li>여러 기관이 함께 쓰는 구조 — 모든 질의에 기관 조건</li>
-            <li>기관마다 다른 명단 엑셀 → 변환기 + 회귀시험 85건</li>
+      <div class="sec-head reveal">
+        <p class="kicker">온다정</p>
+        <h2 class="big">어르신은 전화로,<br>담당자는 폰에서.</h2>
+        <p class="lede">노인일자리 기관에서 어르신 수천 명의 출퇴근을 매일 기록하고, 그 기록이 활동일지와 급여까지 이어지게 하는 서비스입니다. 아래는 담당자용 앱의 시연 화면이에요.</p>
+      </div>
+      <div class="story-l">
+        <div class="steps">
+          <article class="step">
+            <span class="num">01</span>
+            <h3>오늘 누가 출근했는지<br>폰에서 바로.</h3>
+            <p>어르신이 전화 한 통이나 링크로 찍은 출근이 담당자 홈에 바로 모입니다. 되걸어야 할 전화는 맨 위에 둡니다.</p>
+            <img class="shot-m" src="assets/img/app-home.webp" alt="홈 화면: 오늘 출근 현황과 되걸 전화" loading="lazy" width="520" height="1125">
+          </article>
+          <article class="step">
+            <span class="num">02</span>
+            <h3>어르신 한 분 한 분을<br>몇 번 만에 찾기.</h3>
+            <p>이름·번호·사업명으로 찾고, 사업단 → 사업명 → 그룹 차례로 거릅니다. 오늘 출근 시각이 이름 옆에 함께 보입니다.</p>
+            <img class="shot-m" src="assets/img/app-people.webp" alt="참여자 화면: 찾기와 거르기, 출근 시각" loading="lazy" width="520" height="1125">
+          </article>
+          <article class="step">
+            <span class="num">03</span>
+            <h3>받기 전에<br>누구인지 먼저.</h3>
+            <p>기관 대표번호로 걸려 온 전화에서 어르신 이름, 최근 통화, 오늘 출근을 먼저 보여 주는 미리 보기 화면입니다.</p>
+            <img class="shot-m" src="assets/img/app-incoming.webp" alt="받는 전화 미리 보기: 어르신 이름과 최근 이력" loading="lazy" width="520" height="1125">
+          </article>
+        </div>
+        <div class="sticky-phone" aria-hidden="true">
+          <div class="phone"><div class="screen">
+            <img src="assets/img/app-home.webp" alt="" width="520" height="1125">
+            <img src="assets/img/app-people.webp" alt="" width="520" height="1125">
+            <img src="assets/img/app-incoming.webp" alt="" width="520" height="1125">
+          </div></div>
+          <div class="dots"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <p class="lede" style="font-size:14px;color:var(--text-3)">화면 속 이름·기관은 시연용으로 지어낸 것입니다.</p>
+    </div>
+  </section>
+
+  <!-- ③ 숫자 -->
+  <section class="sec" id="numbers" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">숫자</p>
+        <h2 class="big">느낌 대신,<br>재서 고칩니다.</h2>
+      </div>
+      <div class="stats-l">
+        <div class="stat reveal" data-from="20.9" data-to="4.6" data-dec="1">
+          <p class="label">동시 90통일 때, 첫 안내까지 가장 긴 침묵</p>
+          <div class="value"><span class="n">4.6</span><small>초</small></div>
+          <p class="was"><s>20.9초</s>에서 · 부하 시험</p>
+        </div>
+        <div class="stat reveal d1" data-from="5" data-to="1.4" data-dec="1">
+          <p class="label">AI 상담원이 대답하기까지</p>
+          <div class="value"><span class="n">1.4</span><small>초</small></div>
+          <p class="was"><s>5초</s>에서 · 시제품 단계</p>
+        </div>
+        <div class="stat reveal" data-from="57" data-to="71" data-dec="0">
+          <p class="label">AI 상담원 상황별 대화 시험</p>
+          <div class="value"><span class="n">71</span><small>/ 72</small></div>
+          <p class="was"><s>57</s>에서 · 맞장구·끼어들기·침묵</p>
+        </div>
+        <div class="stat reveal d1" data-from="0" data-to="85" data-dec="0">
+          <p class="label">명단 엑셀 변환기 회귀시험</p>
+          <div class="value"><span class="n">85</span><small>/ 85</small></div>
+          <p class="was">기관마다 다른 엑셀을 한 양식으로</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ 사례 -->
+  <section class="sec" id="cases" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">사례</p>
+        <h2 class="big">만들고, 운영하고,<br>재서 고친 것들.</h2>
+        <p class="lede">회사 코드는 비공개 저장소에 있어서 구조와 판단, 잰 숫자를 공개합니다.</p>
+      </div>
+      <div class="cases-l">
+        <a class="case-l reveal" href="cases/ondajung.html">
+          <div>
+            <p class="tag">B2G SaaS · 운영 중</p>
+            <h3>온다정 — 시니어클럽 출퇴근·전화 서비스</h3>
+            <p>전화 한 통·링크로 출근하고, 기록이 활동일지·급여까지 이어집니다. 기관마다 번호·교환기가 따로이고 모든 자료는 기관 단위로 갈립니다.</p>
+            <span class="go">사례 자세히 →</span>
+          </div>
+          <ul class="facts">
+            <li><b>20.9 → 4.6초</b>동시 90통, 첫 안내까지 최대 침묵</li>
+            <li><b>85 / 85</b>명단 변환기 회귀시험</li>
+            <li><b>FastAPI · Asterisk · Kamailio</b>웹부터 교환기까지</li>
           </ul>
-          <ul class="tags"><li>FastAPI</li><li>PostgreSQL</li><li>Asterisk FastAGI</li><li>Kamailio</li><li>Oracle Cloud</li><li>Flutter</li></ul>
-          <span class="more">사례 자세히 →</span>
         </a>
-        <a class="card" href="cases/agentone.html">
-          <span class="kind">Voice AI · 유료 운영 중</span>
-          <h3>에이전트원 — AI 전화 상담원</h3>
-          <p>고객사 번호로 걸려 온 전화를 AI 상담원이 받고, 영업 목록 순서대로 전화를 걸어 대화합니다.</p>
-          <ul>
-            <li>시제품 대답 5초 → 1.4초 (두 연결 방식을 같은 가짜 고객으로 견줘 결정)</li>
-            <li>자동응답 판별: 규칙 + 확률 판정으로 재현 0.930·사람 오인 1</li>
-            <li>상황별 대화 시험 57 → 71/72</li>
+        <a class="case-l reveal" href="cases/staff-app.html">
+          <div>
+            <p class="tag">모바일 · 시제품</p>
+            <h3>온다정 직원 앱 — 밖에서 일하는 담당자용</h3>
+            <p>오늘 출근, 되걸 전화, 받기 전 미리 보기를 폰에서. 카카오로 로그인해도 기관은 서버가 확인합니다.</p>
+            <span class="go">사례 자세히 →</span>
+          </div>
+          <ul class="facts">
+            <li><b>66 / 66</b>단추 전수 시험</li>
+            <li><b>0</b>정적 분석 경고</li>
+            <li><b>Flutter · 토큰 한 파일</b>화면에 숫자 직접 0</li>
           </ul>
-          <ul class="tags"><li>Asterisk</li><li>ElevenLabs</li><li>OpenAI Realtime</li><li>WebSocket</li><li>asyncio</li></ul>
-          <span class="more">사례 자세히 →</span>
         </a>
-        <a class="card" href="cases/collab.html">
-          <span class="kind">사내 도구 · 운영 중</span>
-          <h3>Pureprompt — 한국형 사내 협업툴</h3>
-          <p>슬랙 같은 메신저에 현황 문서·할 일·일정을 붙인 사내 협업툴을 처음부터 지었습니다. 한국어 사용자에 맞춘 검색과 입력을 넣었습니다.</p>
-          <ul>
-            <li>초성(ㄴㅎㅇ)·한영 오타(skagusdn)로도 사람·채널 찾기</li>
-            <li>시험 API 283 · 화면 63 · 폭 10가지 화면 자동 점검</li>
-            <li>에이전트도 읽고 쓰는 API 열쇠(지문만 저장)</li>
+        <a class="case-l reveal" href="cases/agentone.html">
+          <div>
+            <p class="tag">Voice AI · 유료 운영 중</p>
+            <h3>에이전트원 — AI 전화 상담원</h3>
+            <p>걸려 온 전화를 AI 상담원이 받고, 목록 순서대로 걸어 대화합니다. 전화망과 음성 AI 사이의 다리를 맡았습니다.</p>
+            <span class="go">사례 자세히 →</span>
+          </div>
+          <ul class="facts">
+            <li><b>5 → 1.4초</b>대답까지, 두 연결 방식을 견줘 결정</li>
+            <li><b>57 → 71 / 72</b>상황별 대화 시험</li>
+            <li><b>재현 0.930</b>자동응답 판별(사람 오인 1)</li>
           </ul>
-          <ul class="tags"><li>FastAPI</li><li>WebSocket</li><li>SQLite</li><li>Web Push</li><li>Google OAuth</li></ul>
-          <span class="more">사례 자세히 →</span>
         </a>
-        <a class="card" href="cases/staff-app.html">
-          <span class="kind">모바일 · 시제품</span>
-          <h3>온다정 직원 앱 — 밖에서 일하는 담당자용</h3>
-          <p>오늘 출근, 되걸 전화, 어르신 한 분의 근무를 폰에서 바로 봅니다. 시연용 '둘러보기' 모드로 화면을 공개합니다.</p>
-          <ul>
-            <li>크기·색 토큰을 한 파일로 — 화면에 숫자 직접 0</li>
-            <li>카카오 로그인 뒤 기관은 서버가 확인</li>
-            <li>단추 전수 시험 66/66 · 분석 경고 0</li>
+        <a class="case-l reveal" href="cases/collab.html">
+          <div>
+            <p class="tag">사내 도구 · 운영 중</p>
+            <h3>Pureprompt — 한국형 사내 협업툴</h3>
+            <p>슬랙 같은 메신저에 현황 문서·할 일·일정을 붙여 처음부터 지었습니다. 'ㄴㅎㅇ'도 'skagusdn'도 '남현우'로 찾습니다.</p>
+            <span class="go">사례 자세히 →</span>
+          </div>
+          <ul class="facts">
+            <li><b>13곳</b>한 함수로 묶은 한국형 찾기</li>
+            <li><b>API 283 · 화면 63</b>시험</li>
+            <li><b>폭 10 × 화면 31</b>자동 배치 점검, 걸림 0</li>
           </ul>
-          <ul class="tags"><li>Flutter</li><li>Provider</li><li>Kakao</li></ul>
-          <span class="more">사례 자세히 →</span>
         </a>
       </div>
     </div>
   </section>
 
-  <section id="posts">
+  <!-- ⑤ 일하는 방식 -->
+  <section class="sec dark-band" id="how">
     <div class="wrap">
-      <h2>글</h2>
-      <p class="sub">만들면서 재고 배운 것을 적습니다.</p>
-      <ul class="posts">
-        <li><a href="posts/fastagi-load-test.html"><b>동시 통화 부하 시험 — 첫 안내까지 20초를 4초대로</b><span>Asterisk 전화 출근에서 몰릴 때의 침묵을 단계별로 재고, 상주 서버·연결 풀·넘어가는 길로 줄인 기록</span></a></li>
-        <li><a href="posts/korean-search.html"><b>초성과 한영 오타로 찾기, 그리고 조합 중 Enter</b><span>'ㄴㅎㅇ'·'skagusdn'으로 사람 찾기와 크롬·사파리가 다르게 보내는 한글 조합 Enter</span></a></li>
+      <p class="kicker reveal">일하는 방식</p>
+      <ul class="lines">
+        <li>바꾸면, 점검까지.<span>'될 것 같다'가 아니라 시험 n/n 이나 응답표로 확인하고 보고합니다.</span></li>
+        <li>되돌릴 길을 먼저.<span>운영 서버를 바꾸기 전엔 백업과 되돌리는 한 줄부터 만듭니다.</span></li>
+        <li>잴 수 있게 만든다.<span>"느리다"는 말을 받으면 단계마다 시간을 떠서 어디가 느린지부터 찾습니다.</span></li>
+        <li>경계는 코드 규칙으로.<span>여러 기관이 쓰는 서비스는 첫날부터 모든 질의에 기관 조건을 겁니다.</span></li>
+        <li>비밀은 코드 밖으로.<span>열쇠·명단은 서버에만. 저장소에 올리기 전엔 비밀 검사기를 돌립니다.</span></li>
       </ul>
     </div>
   </section>
 
-  <section id="projects">
+  <!-- ⑥ 글 -->
+  <section class="sec" id="posts">
     <div class="wrap">
-      <h2>그 밖의 프로젝트</h2>
-      <p class="sub">공개 저장소로 바로 열어 볼 수 있는 것들입니다.</p>
-      <div class="cards">
-        <a class="card" href="https://gusdn0822-rgb.github.io/map-project/">
-          <span class="kind">지도 · 현장조사</span>
-          <h3>제주 중앙로 상권 현장조사 지도</h3>
-          <p>현장에서 업소 정보를 지도 위에서 바로 고치고 모으는 웹 지도입니다.</p>
-          <span class="more">열어 보기 →</span>
-        </a>
-        <a class="card" href="https://github.com/gusdn0822-rgb/JeJu">
-          <span class="kind">데이터 시각화</span>
-          <h3>제주 방문객 인사이트 대시보드</h3>
-          <p>2025년 제주 방문 관광객 자료를 한 화면 대시보드로 정리했습니다.</p>
-          <span class="more">저장소 →</span>
-        </a>
-        <a class="card" href="https://github.com/gusdn0822-rgb/JEJU-Greater-Tomorrow-Center">
-          <span class="kind">뉴스레터</span>
-          <h3>제주더큰내일센터 뉴스레터</h3>
-          <p>센터 소식·교육·채용 정보를 묶은 HTML 뉴스레터입니다.</p>
-          <span class="more">저장소 →</span>
-        </a>
+      <div class="sec-head reveal">
+        <p class="kicker">글</p>
+        <h2 class="big">만들면서 재고<br>배운 것.</h2>
+      </div>
+      <div class="list-l">
+        <a class="tile reveal" href="posts/fastagi-load-test.html"><span class="t-kind">Asterisk · 부하 시험</span><h4>동시 통화 부하 시험 — 첫 안내까지 20초를 4초대로</h4><p>몰릴 때의 침묵을 단계별로 재고, 상주 서버·연결 풀·넘어가는 길로 줄인 기록.</p></a>
+        <a class="tile reveal d1" href="posts/korean-search.html"><span class="t-kind">JavaScript · 한국어 입력</span><h4>초성과 한영 오타로 찾기, 그리고 조합 중 Enter</h4><p>'ㄴㅎㅇ'·'skagusdn'으로 사람 찾기와, 브라우저마다 다른 한글 조합 Enter.</p></a>
       </div>
     </div>
   </section>
 
-  <section id="skills">
+  <!-- ⑦ 그 밖 -->
+  <section class="sec" id="more" style="padding-top:0">
     <div class="wrap">
-      <h2>기술 — 어디에 썼는지와 함께</h2>
-      <p class="sub">막대그래프 대신, 실제 운영 서비스에서 맡은 자리를 적었습니다.</p>
-      <table class="skills">
-        <tbody>
-          <tr><th>백엔드</th><td>Python · FastAPI · PostgreSQL</td><td>온다정 API(출퇴근·급여·문자·명단), 협업툴 서버(WebSocket 실시간), 기관별 자료 경계(tenant_id) 설계</td></tr>
-          <tr><th>음성·전화</th><td>Asterisk 23 (AGI·FastAGI·PJSIP) · Kamailio</td><td>전화 출근 안내, 담당자 연결·돌려주기, 녹음, 기관별 교환기, 번호→기관 SIP 중계</td></tr>
-          <tr><th>음성 AI</th><td>ElevenLabs Conversational AI · OpenAI Realtime · Whisper</td><td>AI 전화 상담원 다리(WebSocket·SIP), 말 끝 판단·끼어들기 조정, 통화 받아쓰기</td></tr>
-          <tr><th>프런트엔드</th><td>Vanilla JS · HTML/CSS 디자인 토큰</td><td>담당자 화면·어르신 출근 화면·협업툴 화면, 폭 10가지 자동 배치 점검</td></tr>
-          <tr><th>모바일</th><td>Flutter · Kakao 로그인</td><td>온다정 직원용 앱 시제품(안드로이드), 버튼 전수 시험 66건</td></tr>
-          <tr><th>인프라·운영</th><td>Oracle Cloud · Caddy · systemd · cron · git</td><td>서버 이전과 무중단 전환·되돌리기, 백업, 서버에서 코드를 모아 저장소로 기록</td></tr>
-          <tr><th>AI 협업</th><td>Claude Code</td><td>설계·구현·점검을 AI와 짝으로. 대신 바꾼 뒤엔 반드시 수치로 점검하고 되돌릴 길을 남깁니다</td></tr>
-        </tbody>
-      </table>
+      <div class="sec-head reveal">
+        <p class="kicker">그 밖의 프로젝트</p>
+        <h2 class="big">바로 열어 볼 수 있는 것.</h2>
+      </div>
+      <div class="list-l">
+        <a class="tile reveal" href="https://gusdn0822-rgb.github.io/map-project/"><span class="t-kind">지도 · 현장조사</span><h4>제주 중앙로 상권 현장조사 지도</h4><p>현장에서 업소 정보를 지도 위에서 바로 고치고 모으는 웹 지도.</p></a>
+        <a class="tile reveal d1" href="https://github.com/gusdn0822-rgb/JeJu"><span class="t-kind">데이터 시각화</span><h4>제주 방문객 인사이트 대시보드</h4><p>2025년 제주 방문 관광객 자료를 한 화면으로.</p></a>
+        <a class="tile reveal d2" href="https://github.com/gusdn0822-rgb/JEJU-Greater-Tomorrow-Center"><span class="t-kind">뉴스레터</span><h4>제주더큰내일센터 뉴스레터</h4><p>센터 소식·교육·채용 정보를 묶은 HTML 뉴스레터.</p></a>
+      </div>
+      <div class="sec-head reveal" style="margin-top:clamp(56px,8vw,96px)">
+        <p class="kicker">주로 쓰는 것</p>
+      </div>
+      <div class="chips reveal">
+        <span>Python<b>FastAPI</b></span><span>PostgreSQL</span><span>Asterisk<b>AGI·FastAGI·PJSIP</b></span><span>Kamailio</span>
+        <span>ElevenLabs</span><span>OpenAI Realtime</span><span>Flutter</span><span>Vanilla JS<b>디자인 토큰</b></span>
+        <span>Oracle Cloud</span><span>Caddy · systemd</span><span>git</span><span>Claude Code<b>AI 페어 프로그래밍</b></span>
+      </div>
     </div>
   </section>
 
-  <section id="how">
+  <!-- ⑧ 연락 -->
+  <section class="sec closing" id="contact" style="padding-top:0">
     <div class="wrap">
-      <h2>일하는 방식</h2>
-      <p class="sub">운영 중인 서비스를 만지면서 생긴 습관입니다.</p>
-      <ul class="principles">
-        <li><b>바꾸면 점검까지</b><span>고친 뒤 '될 것 같다'가 아니라 시험 n/n 이나 응답표로 확인하고 보고합니다.</span></li>
-        <li><b>되돌릴 길을 먼저</b><span>운영 서버를 바꾸기 전엔 백업과 되돌리는 한 줄을 먼저 만들어 둡니다.</span></li>
-        <li><b>잴 수 있게 만든다</b><span>"느리다"는 말을 받으면 단계마다 시간을 떠서 어디가 느린지부터 찾습니다.</span></li>
-        <li><b>경계는 코드 규칙으로</b><span>여러 기관이 쓰는 서비스는 첫날부터 모든 질의에 기관 조건을 겁니다. 모르면 열지 않고 닫습니다.</span></li>
-        <li><b>비밀은 코드 밖으로</b><span>열쇠·비밀번호·명단은 .env 와 서버에만. 저장소에 올리기 전엔 비밀 검사기를 돌립니다.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <h2>연락</h2>
-      <p class="sub">함께 만들 이야기가 있으면 편하게 연락 주세요.</p>
-      <div class="cta">
-        <a class="btn primary" href="mailto:gusdn0822@gmail.com">gusdn0822@gmail.com</a>
-        <a class="btn" href="https://github.com/gusdn0822-rgb">github.com/gusdn0822-rgb</a>
+      <div class="reveal">
+        <h2 class="big center">같이 만들 이야기가 있다면,<br>편하게 연락 주세요.</h2>
+        <div class="stage-cta" style="margin-top:32px">
+          <a class="btn-l blue" href="mailto:gusdn0822@gmail.com">gusdn0822@gmail.com</a>
+          <a class="btn-l grey" href="https://github.com/gusdn0822-rgb">GitHub</a>
+        </div>
       </div>
     </div>
   </section>

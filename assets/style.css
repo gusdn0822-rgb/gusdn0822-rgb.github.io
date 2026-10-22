@@ -1,18 +1,20 @@
 /* 남현우 포트폴리오 — 공통 디자인 (2026-10-22)
    색·글자·간격은 여기 :root 토큰만 쓴다. 어두운 모드는 같은 이름을 바꿔 끼운다. */
+/* 2026-10-23 토스 같은 랜딩으로 — 회색 단계 + 파란 포인트 하나(남현우 님 "toss 같은 곳처럼") */
 :root {
-  --bg: #fbfaf7;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --surface-2: #f3f1ec;
-  --text: #1c1b19;
-  --text-2: #55524c;
-  --text-3: #85817a;
-  --line: #e4e1da;
-  --accent: #0f766e;
-  --accent-soft: #e3f2ef;
-  --accent-ink: #0b5751;
+  --surface-2: #f2f4f6;
+  --text: #191f28;
+  --text-2: #4e5968;
+  --text-3: #8b95a1;
+  --line: #e5e8eb;
+  --accent: #3182f6;
+  --accent-soft: #e8f3ff;
+  --accent-ink: #1b64da;
   --warn: #b45309;
-  --good: #15803d;
+  --good: #1b64da;
+  --ink-hero: #0b1220;
   --radius: 14px;
   --radius-sm: 8px;
   --gutter: 16px;
@@ -27,18 +29,18 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #121311;
-    --surface: #1a1c19;
-    --surface-2: #222521;
-    --text: #ecebe6;
-    --text-2: #b8b5ad;
-    --text-3: #8d8a83;
-    --line: #2e322d;
-    --accent: #5eead4;
-    --accent-soft: #15302c;
-    --accent-ink: #99f6e4;
+    --bg: #17171c;
+    --surface: #202027;
+    --surface-2: #2c2c35;
+    --text: #f9fafb;
+    --text-2: #b0b8c1;
+    --text-3: #8b95a1;
+    --line: #33333d;
+    --accent: #4593fc;
+    --accent-soft: #1a2a44;
+    --accent-ink: #90c2ff;
     --warn: #fbbf24;
-    --good: #4ade80;
+    --good: #90c2ff;
     --shadow: none;
     color-scheme: dark;
   }
@@ -78,7 +80,7 @@ img, svg { max-width: 100%; height: auto; }
 .cta { display: flex; gap: 10px; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); color: var(--text); background: var(--surface); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-@media (prefers-color-scheme: dark) { .btn.primary { color: #06231f; } }
+@media (prefers-color-scheme: dark) { .btn.primary { color: #ffffff; } }
 
 /* 숫자 띠 */
 .proof { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 36px 0 0; padding: 0; list-style: none; }
