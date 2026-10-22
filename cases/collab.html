@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pureprompt 사내 협업툴 — 남현우</title>
-<meta name="description" content="Pureprompt 사내 협업툴: 슬랙형 메신저에 현황 문서·할 일·일정을 더하고, 한국어 검색과 입력을 다듬은 과정.">
+<meta name="description" content="Pureprompt 사내 협업툴: 슬랙형 메신저에 현황 문서·할 일·일정·AI 에이전트 API를 더하고, 초성·한영 오타 검색을 13곳에 통일. 자동 테스트 346개.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -14,8 +14,8 @@
     <a class="brand" href="../">남현우</a>
     <nav class="nav" aria-label="프로젝트">
       <a href="ondajung.html">온다정</a>
-      <a href="staff-app.html">담당자 앱</a>
       <a href="agentone.html">에이전트원</a>
+      <a href="staff-app.html">담당자 앱</a>
       <a href="collab.html" aria-current="page">협업툴</a>
     </nav>
   </div>
@@ -25,9 +25,14 @@
   <article class="case">
     <p class="crumb"><a href="../#cases">← 프로젝트 목록</a></p>
     <h1>Pureprompt 사내 협업툴</h1>
-    <p class="lead">회사의 네 가지 서비스(온다정·띠링·에이전트원·이음) 팀과 마케터, 개발자가 한곳에서 대화하고 현황 문서와 할 일을 맞춰 가는 사내 협업툴입니다. 슬랙을 기본 구조로 삼고, 노션·리니어의 장점을 더해 처음부터 만들었습니다.</p>
+    <p class="lead">회사의 네 서비스(온다정·띠링·에이전트원·이음) 팀과 마케터, 개발자가 한곳에서 대화하고 현황과 할 일을 맞춰 가는 사내 협업툴입니다. 슬랙의 구조에 노션·리니어의 장점을 더해, <b>설계부터 배포까지</b> 맡아 처음부터 만들었습니다.</p>
+    <ul class="kpis" aria-label="핵심 성과">
+      <li><b>346개</b><span>자동 테스트 · API 283 · 화면 63</span></li>
+      <li><b>13곳</b><span>한국어 검색 함수 하나로 통일</span></li>
+      <li><b>10 × 31</b><span>화면 폭 × 화면 레이아웃 자동 점검</span></li>
+    </ul>
     <ul class="meta">
-      <li><small>역할</small>설계·개발·배포</li>
+      <li><small>역할</small>설계 · 개발 · 배포</li>
       <li><small>상태</small>사내 운영 중</li>
       <li><small>기술</small>FastAPI · WebSocket · SQLite · Web Push · Google OAuth</li>
       <li><small>기간</small>2026.09 — 현재</li>
@@ -35,54 +40,54 @@
   </article>
 
   <div class="block">
-    <h2>기능</h2>
+    <h2>주요 기능</h2>
     <ul>
       <li><b>메신저</b> — 채널·스레드·DM·리액션·멘션·고정 메시지·북마크·예약 전송·나중에 알림. 실시간은 WebSocket</li>
-      <li><b>현황 문서</b> — 채널마다 노션식 문서 한 장, 버전 기록 100개·되돌리기, 오래 업데이트되지 않은 항목은 월요일에 알림</li>
-      <li><b>할 일</b> — 리니어식 짧은 번호(개발-42)를 대화에 쓰면 카드로 표시, 보드·하위 체크리스트</li>
-      <li><b>일정</b> — 회사 구글 계정 로그인, 각자 허용한 캘린더로 회의 잡기·Meet 링크·10분 전 알림</li>
-      <li><b>에이전트 API</b> — 사람이 발급한 키로 AI 에이전트가 진행 상황을 읽고 쓰기. DB에는 키의 해시만 저장</li>
+      <li><b>현황 문서</b> — 채널마다 노션식 문서 한 장, 버전 기록 100개와 되돌리기, 오래 업데이트되지 않은 항목은 월요일에 알림</li>
+      <li><b>할 일</b> — 리니어식 짧은 번호(개발-42)를 대화에 쓰면 카드로 표시, 보드와 하위 체크리스트</li>
+      <li><b>일정</b> — 회사 구글 계정으로 로그인, 각자 허용한 캘린더로 회의 잡기·Meet 링크·10분 전 알림</li>
+      <li><b>에이전트 API</b> — 사람이 발급한 키로 AI 에이전트가 진행 상황을 읽고 씁니다. DB에는 키의 해시만 저장</li>
     </ul>
   </div>
 
   <div class="block">
-    <h2>주요 작업</h2>
+    <h2>핵심 기여</h2>
 
     <div class="story">
       <h3>1. 한국어 사용자를 위한 검색과 입력</h3>
       <dl>
-        <dt>배경</dt><dd>사람을 찾을 때 한글 전환을 잊고 <code>skagusdn</code>으로 입력하거나, 초성만 <code>ㄴㅎㅇ</code>으로 입력하는 경우가 많습니다. 한글을 조합하는 중에 Enter를 누르면 메시지가 두 번 가거나 마지막 글자가 빠지기도 했습니다.</dd>
-        <dt>개선</dt><dd>낱말 단위 초성 검색과 영문 자판 → 한글 변환을 하나의 함수로 만들어 사이드바·멘션·검색 등 <b>13곳</b>에 공통으로 적용했습니다. 조합 중 Enter 문제는 브라우저 자동화로 실제 입력을 재현해 고쳤습니다.</dd>
-        <dt>결과</dt><dd class="result"><code>ㄴㅎㅇ</code>과 <code>skagusdn</code> 모두 → <b>남현우</b>. 검색 결과에 "혹시 ‘남현우’를 찾으세요?"를 함께 보여 줍니다. <a href="../posts/korean-search.html">자세한 글 보기 →</a></dd>
+        <dt>문제</dt><dd>사람을 찾을 때 한글 전환을 잊고 <code>skagusdn</code>으로 입력하거나, 초성만 <code>ㄴㅎㅇ</code>으로 입력하는 경우가 많습니다. 한글 조합 중 Enter는 브라우저마다 동작이 달라, 메시지가 두 번 가거나 마지막 글자가 빠질 수 있습니다.</dd>
+        <dt>해결</dt><dd>낱말 단위 초성 검색과 두벌식 한영 변환을 하나의 함수로 만들어 사이드바·멘션·검색 등 <b>13곳</b>에 공통으로 적용했습니다. 조합 중 Enter는 브라우저 자동화로 실제 한글 입력을 재현해 검증했습니다.</dd>
+        <dt>판단</dt><dd>검색 규칙은 화면마다 따로 만들지 않고 한 함수로 모았습니다. 어디서 찾든 같은 결과가 나와야 하니까요.</dd>
+        <dt>결과</dt><dd class="result"><code>ㄴㅎㅇ</code>도 <code>skagusdn</code>도 → <b>남현우</b>. <a href="../#demo">첫 화면 데모에서 써 보기 →</a> · <a href="../posts/korean-search.html">자세한 글 →</a></dd>
       </dl>
     </div>
 
     <div class="story">
       <h3>2. 디자인을 감이 아니라 기준으로</h3>
       <dl>
-        <dt>배경</dt><dd>화면을 고칠 때마다 글자 크기·버튼 높이·여백 값이 조금씩 늘어, 처음에는 글자 크기 20가지, 높이 13가지, 여백 25가지가 섞여 있었습니다.</dd>
-        <dt>개선</dt><dd>크기를 <code>:root</code> 디자인 토큰 단계로 묶고, <b>화면 폭 10가지 × 화면 31개</b>를 자동으로 열어 글자 대비 4.5:1, 모바일 터치 영역 32px, 정렬 어긋남을 확인하는 점검 도구를 만들었습니다. 실제 슬랙 화면과 나란히 놓고 치수를 맞췄습니다.</dd>
-        <dt>결과</dt><dd class="result">점검 위반 <b>0건</b> · 자동 테스트 <b>API 283 · 화면 63</b> (운영 DB와 분리된 테스트 서버에서 실행).</dd>
+        <dt>문제</dt><dd>기능이 빠르게 늘면서 글자 크기 20가지, 높이 13가지, 여백 25가지 값이 화면마다 섞이기 시작했습니다.</dd>
+        <dt>해결</dt><dd>값을 <code>:root</code> 디자인 토큰 단계로 묶고, <strong>화면 폭 10가지 × 화면 31개</strong>를 자동으로 열어 글자 대비 4.5:1, 터치 영역, 정렬 어긋남을 확인하는 점검 도구를 만들었습니다. 실제 슬랙 화면과 나란히 놓고 치수를 맞췄습니다.</dd>
+        <dt>결과</dt><dd class="result">점검 위반 <b>0건</b> · 자동 테스트 <b>API 283 · 화면 63</b> (운영과 분리된 테스트 서버에서 실행).</dd>
       </dl>
     </div>
 
     <div class="story">
       <h3>3. 현황이 실제와 어긋나지 않게</h3>
       <dl>
-        <dt>배경</dt><dd>일은 대화에서 끝나는데 현황표를 업데이트하는 사람이 없으면, 표는 며칠 전 상태에 머물러 실제와 달라집니다.</dd>
-        <dt>개선</dt><dd>작업을 마칠 때마다 '무엇이 바뀌었는지'를 한 묶음으로 기록해 서버에 반영하는 경로를 만들었습니다. 같은 묶음을 두 번 반영해도 결과가 같고, 사람이 직접 고친 항목은 덮어쓰지 않습니다.</dd>
-        <dt>결과</dt><dd class="result">네 서비스 채널의 현황과 할 일이 <b>그날의 작업 기록</b>에 맞춰집니다.</dd>
+        <dt>문제</dt><dd>일은 대화에서 끝나는데 현황표는 누군가 고쳐야 바뀝니다. 그대로 두면 표는 며칠 전 상태에 머뭅니다.</dd>
+        <dt>해결</dt><dd>작업을 마칠 때마다 '무엇이 바뀌었는지'를 한 묶음으로 기록해 서버에 반영하는 경로를 만들었습니다. 같은 묶음을 두 번 반영해도 결과가 같고(멱등), 사람이 직접 고친 항목은 덮어쓰지 않습니다.</dd>
+        <dt>결과</dt><dd class="result">네 서비스 채널의 현황과 할 일이 <b>그날의 작업 기록</b>과 맞춰집니다.</dd>
       </dl>
     </div>
   </div>
 
   <div class="block">
-    <h2>배운 점</h2>
+    <h2>회고</h2>
     <ul>
       <li>다른 제품을 참고할 때는 '느낌'이 아니라 치수를 재서 맞춥니다.</li>
       <li>비밀값은 응답·실시간 메시지·로그 어디에도 싣지 않고, 꺼내는 경로를 하나로 둡니다.</li>
     </ul>
-    <p class="note">사내 도구라 코드는 회사 비공개 저장소에 있습니다.</p>
   </div>
 </main>
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>온다정 담당자 앱 — 남현우</title>
-<meta name="description" content="온다정 담당자 앱(Flutter): 현장 담당자가 출근 현황, 다시 걸 전화, 걸려 온 전화 정보를 휴대폰에서 확인하는 앱 시제품.">
+<meta name="description" content="온다정 담당자 앱(Flutter MVP): 현장 담당자가 출근 현황, 다시 걸 전화, 걸려 온 전화 정보를 휴대폰에서 확인. 자동 테스트 79/79, 카카오 로그인 + 서버 검증.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -14,8 +14,8 @@
     <a class="brand" href="../">남현우</a>
     <nav class="nav" aria-label="프로젝트">
       <a href="ondajung.html">온다정</a>
-      <a href="staff-app.html" aria-current="page">담당자 앱</a>
       <a href="agentone.html">에이전트원</a>
+      <a href="staff-app.html" aria-current="page">담당자 앱</a>
       <a href="collab.html">협업툴</a>
     </nav>
   </div>
@@ -25,10 +25,15 @@
   <article class="case">
     <p class="crumb"><a href="../#cases">← 프로젝트 목록</a></p>
     <h1>온다정 담당자 앱 — 현장에서 일하는 담당자를 위해</h1>
-    <p class="lead">노인 일자리 기관의 담당자는 사무실보다 현장에 있을 때가 많습니다. 오늘 누가 출근했는지, 다시 걸어야 할 전화가 있는지, 어르신 한 분의 이번 주 근무가 어떤지를 휴대폰에서 바로 확인할 수 있게 만든 앱입니다. 웹 서비스와 같은 서버를 씁니다.</p>
+    <p class="lead">노인 일자리 담당자는 사무실보다 현장에 있을 때가 많습니다. 오늘의 출근 현황, 다시 걸 전화, 걸려 온 전화의 어르신 정보를 휴대폰에서 바로 확인하는 앱을 <b>설계부터 개발까지</b> 맡았습니다. 웹 서비스와 같은 API를 씁니다.</p>
+    <ul class="kpis" aria-label="핵심 성과">
+      <li><b>79 / 79</b><span>자동 테스트</span></li>
+      <li><b>경고 0</b><span>정적 분석</span></li>
+      <li><b>16 · 48</b><span>최소 글자 크기 · 터치 영역 기준</span></li>
+    </ul>
     <ul class="meta">
-      <li><small>역할</small>설계·개발 (Flutter)</li>
-      <li><small>상태</small>시제품 — 안드로이드 우선</li>
+      <li><small>역할</small>설계 · 개발 (Flutter)</li>
+      <li><small>상태</small>MVP · 안드로이드 먼저</li>
       <li><small>기술</small>Flutter · Provider · 카카오 로그인</li>
       <li><small>기간</small>2026.10 — 현재</li>
     </ul>
@@ -36,7 +41,7 @@
 
   <div class="block">
     <h2>화면</h2>
-    <p>앱의 <b>체험 모드</b> 화면입니다. 이름과 기관은 모두 예시 데이터입니다.</p>
+    <p>앱의 <b>체험 모드</b> 화면이에요. 이름과 기관은 모두 예시 데이터입니다.</p>
     <div class="shots">
       <figure><img src="../assets/img/app-home.webp" alt="홈: 오늘 출근 현황, 수신·발신·미처리 전화 수, 다시 걸 전화" loading="lazy" width="520" height="1125"><figcaption>홈 — 오늘 출근 현황 · 다시 걸 전화</figcaption></figure>
       <figure><img src="../assets/img/app-people.webp" alt="참여자 목록: 이름·사업·출근 시각, 검색과 필터" loading="lazy" width="520" height="1125"><figcaption>참여자 — 검색 · 필터</figcaption></figure>
@@ -45,39 +50,42 @@
   </div>
 
   <div class="block">
-    <h2>주요 작업</h2>
+    <h2>핵심 기여</h2>
 
     <div class="story">
-      <h3>1. 크기와 색을 한 곳에서 관리</h3>
+      <h3>1. 디자인 토큰으로 웹과 같은 화면 기준</h3>
       <dl>
-        <dt>작업</dt><dd>간격·모서리·버튼 높이·글자 크기를 <code>tokens.dart</code> 한 파일에 모으고, 웹 서비스의 디자인 토큰과 값을 맞췄습니다. 화면 코드에는 숫자를 직접 쓰지 않습니다. 어르신을 돕는 담당자용 앱이라 글자는 16 이상, 터치 영역은 48 이상으로 하고 말줄임 없이 보여 줍니다.</dd>
-        <dt>결과</dt><dd class="result">버튼 동작 테스트 <b>66/66</b> · 위젯 테스트 45개 · 정적 분석 경고 <b>0</b>.</dd>
+        <dt>해결</dt><dd>간격·모서리·버튼 높이·글자 크기를 <code>tokens.dart</code> 한 파일로 모으고, 웹 서비스의 디자인 토큰과 값을 맞췄습니다. 화면 코드에는 숫자를 직접 쓰지 않습니다.</dd>
+        <dt>판단</dt><dd>어르신을 돕는 담당자용 앱이라 <strong>글자 16 이상, 터치 영역 48 이상, 말줄임 없이 끝까지</strong> 보여 주는 것을 기준으로 삼았습니다. 320px 작은 화면에서도 글자와 버튼이 잘리지 않게 맞췄습니다.</dd>
+        <dt>결과</dt><dd class="result">자동 테스트 <b>79/79</b> · 정적 분석 경고 <b>0</b>.</dd>
       </dl>
     </div>
 
     <div class="story">
-      <h3>2. 카카오로 로그인해도 기관은 서버가 확인</h3>
+      <h3>2. 카카오 로그인 + 서버 검증으로 기관 경계 지키기</h3>
       <dl>
-        <dt>설계</dt><dd>앱은 카카오 로그인 결과만 서버로 보내고, <strong>서버가 카카오에 직접 확인한</strong> 전화번호로 담당자를 찾습니다. 담당자가 여러 기관에 속해 있으면 선택하게 하고, 이름으로는 찾지 않습니다. 기관 경계를 앱이 아니라 서버가 지키도록 한 설계입니다.</dd>
+        <dt>해결</dt><dd>앱은 카카오 로그인 결과만 서버로 보내고, <strong>서버가 카카오에 직접 확인한</strong> 전화번호로 담당자를 찾습니다. 여러 기관에 속한 담당자는 직접 고르게 하고, 이름으로는 찾지 않습니다.</dd>
+        <dt>판단</dt><dd>기관 경계는 앱이 아니라 서버가 지킵니다. 앱이 믿어도 되는 정보와 서버가 확인해야 하는 정보를 먼저 나눴습니다.</dd>
+        <dt>결과</dt><dd class="result">실제 카카오 계정으로 <b>로그인 → 서버 검증 → 홈</b>까지 전 과정 동작을 확인했습니다.</dd>
       </dl>
     </div>
 
     <div class="story">
-      <h3>3. 릴리스 빌드에서만 생기는 문제</h3>
+      <h3>3. 릴리스 빌드에서만 멈추던 로그인 추적</h3>
       <dl>
-        <dt>원인</dt><dd>디버그 빌드에서는 되던 로그인이 릴리스 빌드에서만 멈췄습니다. 코드 축소(R8)가 이름으로 호출되는 코드를 쓰지 않는 코드로 보고 지운 것이 원인이었습니다.</dd>
-        <dt>해결</dt><dd>로그(logcat)에서 지워진 클래스를 찾아 보존 규칙을 추가하고, 시제품 기간에는 축소를 끈 뒤 스토어 배포 때 규칙을 갖춰 다시 켜기로 했습니다. 오류는 화면에 한 줄로 보여 주고, 원문은 로그로 남깁니다.</dd>
+        <dt>문제</dt><dd>디버그 빌드에서는 되던 로그인이 릴리스 빌드에서만 멈췄습니다.</dd>
+        <dt>원인</dt><dd>logcat으로 추적해 보니, 코드 축소(R8)가 리플렉션으로 호출되는 코드 두 곳(저장소 플러그인, Kotlin 코루틴)을 쓰지 않는 코드로 보고 지우고 있었습니다.</dd>
+        <dt>해결</dt><dd>지워진 클래스를 특정해 keep 규칙을 작성했습니다. 오류는 화면에 한 줄로 보여 주고, 원문은 로그로 남겨 다음 추적을 빠르게 했습니다.</dd>
       </dl>
     </div>
   </div>
 
   <div class="block">
-    <h2>배운 점</h2>
+    <h2>회고</h2>
     <ul>
       <li>체험 모드를 처음부터 넣어 두면, 실제 데이터 없이도 화면을 보여 주고 테스트할 수 있습니다.</li>
-      <li>앱이 믿어도 되는 정보와 서버가 확인해야 하는 정보를 먼저 나눕니다.</li>
+      <li>릴리스 빌드는 디버그와 다른 앱이라고 보고 따로 확인합니다.</li>
     </ul>
-    <p class="note">회사 서비스라 코드는 비공개 저장소에 있습니다. 화면은 예시 데이터입니다.</p>
   </div>
 </main>
 

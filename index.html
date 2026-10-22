@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>남현우 — 서비스개발자</title>
-<meta name="description" content="어르신의 전화 한 통부터 AI 상담원까지, 매일 쓰이는 서비스를 만들고 운영하는 서비스개발자 남현우의 포트폴리오입니다.">
+<meta name="description" content="백엔드부터 전화 인프라, 음성 AI, 모바일 앱까지. 매일 쓰이는 서비스를 만들고 운영하는 서비스개발자 남현우의 포트폴리오입니다.">
 <meta property="og:title" content="남현우 — 서비스개발자">
-<meta property="og:description" content="노인 일자리 출퇴근·전화 서비스, 담당자 앱, AI 전화 상담원, 사내 협업툴을 만들고 운영합니다.">
+<meta property="og:description" content="노인 일자리 B2G SaaS, Voice AI 상담원, Flutter 앱, 사내 협업툴. 기획부터 운영까지 맡고, 개선은 숫자로 보여 줍니다.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0b1220">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -39,9 +39,9 @@
     <div class="stage-card">
       <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="stage-copy">
-        <p class="eyebrow">서비스개발자 · Pureprompt · 제주</p>
+        <p class="eyebrow">풀스택 서비스개발자 · Pureprompt</p>
         <h1 class="stage-title"><span>어르신의 <br class="mbr">전화 한 통부터</span><span>AI 상담원까지,</span><span>매일 쓰이는 서비스.</span></h1>
-        <p class="stage-sub">웹 화면부터 전화 교환기, 클라우드 서버까지. 서비스가 지나는 길을 직접 만들고, 문제가 생기기 전에 숫자로 확인합니다.</p>
+        <p class="stage-sub">백엔드부터 전화 인프라, 음성 AI, 모바일 앱까지. 기획에서 운영까지 맡고, 개선은 숫자로 보여 줍니다.</p>
         <div class="stage-cta">
           <a class="btn-l blue" href="#demo">데모 써 보기</a>
           <a class="btn-l ghost" href="#cases">프로젝트 보기</a>
@@ -56,12 +56,44 @@
   <!-- 한 문장 + 기술 -->
   <section class="sec" id="intro" data-rail="소개">
     <div class="wrap">
-      <p class="statement">매일 실제로 쓰이는 서비스를 만듭니다. 어르신이 건 전화 한 통이 출근 기록이 되고, 그 기록이 급여까지 이어지는 과정을 처음부터 끝까지 설계하고 운영합니다.</p>
+      <p class="statement">실제 사용자가 매일 쓰는 서비스를 만듭니다. 어르신이 건 전화 한 통이 출근 기록이 되고, 그 기록이 급여로 이어지는 흐름 전체를 설계하고 운영합니다.</p>
     </div>
     <div class="marquee" style="margin-top:clamp(48px,7vw,88px)" aria-label="주로 쓰는 기술">
       <div class="track">
         <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Asterisk</span><span>FastAGI</span><span>Kamailio</span><span>WebSocket</span><span>ElevenLabs</span><span>OpenAI Realtime</span><span>Whisper</span><span>Flutter</span><span>Vanilla JS</span><span>Oracle Cloud</span><span>Caddy</span><span>systemd</span><span>git</span><span>Claude Code</span>
         <span aria-hidden="true">Python</span><span aria-hidden="true">FastAPI</span><span aria-hidden="true">PostgreSQL</span><span aria-hidden="true">Asterisk</span><span aria-hidden="true">FastAGI</span><span aria-hidden="true">Kamailio</span><span aria-hidden="true">WebSocket</span><span aria-hidden="true">ElevenLabs</span><span aria-hidden="true">OpenAI Realtime</span><span aria-hidden="true">Whisper</span><span aria-hidden="true">Flutter</span><span aria-hidden="true">Vanilla JS</span><span aria-hidden="true">Oracle Cloud</span><span aria-hidden="true">Caddy</span><span aria-hidden="true">systemd</span><span aria-hidden="true">git</span><span aria-hidden="true">Claude Code</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 핵심 성과 — 소개 바로 다음에 둔다. 읽는 사람이 프로젝트 설명보다 결과를 먼저 보게(요즘 포트폴리오 관례) -->
+  <section class="sec" id="numbers" data-rail="성과" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">핵심 성과</p>
+        <h2 class="big">감 대신,<br>숫자로 보여 드릴게요.</h2>
+      </div>
+      <div class="stats-l">
+        <div class="stat reveal" data-from="20.9" data-to="4.6" data-dec="1">
+          <p class="label">출근 시간 전화 몰림, 첫 안내까지 최대 대기</p>
+          <div class="value"><span class="n">4.6</span><small>초</small></div>
+          <p class="was"><b>78% 단축</b> · 개선 전 <s>20.9초</s> · 동시 90통</p>
+        </div>
+        <div class="stat reveal d1" data-from="5" data-to="1.4" data-dec="1">
+          <p class="label">AI 상담원 응답 지연</p>
+          <div class="value"><span class="n">1.4</span><small>초</small></div>
+          <p class="was"><b>72% 단축</b> · 개선 전 <s>5초</s></p>
+        </div>
+        <div class="stat reveal" data-from="57" data-to="71" data-dec="0">
+          <p class="label">AI 상담원 상황별 대화 테스트 통과</p>
+          <div class="value"><span class="n">71</span><small>/ 72</small></div>
+          <p class="was"><b>통과율 79% → 99%</b> · 맞장구·끼어들기·침묵</p>
+        </div>
+        <div class="stat reveal d1" data-from="0" data-to="85" data-dec="0">
+          <p class="label">명단 엑셀 변환 회귀 테스트</p>
+          <div class="value"><span class="n">85</span><small>/ 85</small></div>
+          <p class="was"><b>실패 0</b> · 기관별 엑셀 5종을 통합 양식 하나로</p>
+        </div>
       </div>
     </div>
   </section>
@@ -72,7 +104,7 @@
       <div class="sec-head reveal">
         <p class="kicker">온다정</p>
         <h2 class="big">어르신은 전화로,<br>담당자는 휴대폰으로.</h2>
-        <p class="lede">노인 일자리 기관에서 어르신 수천 명의 출퇴근을 기록하고, 그 기록을 활동일지와 급여까지 이어 주는 서비스입니다. 아래는 담당자용 앱 화면이에요.</p>
+        <p class="lede">노인 일자리 기관에서 어르신 수천 명의 출퇴근을 기록하고, 활동일지와 급여까지 이어 주는 B2G SaaS예요. 아래는 현장 담당자용 앱 화면이에요.</p>
       </div>
       <div class="story-l">
         <div class="steps">
@@ -155,97 +187,65 @@
     </div>
   </section>
 
-  <!-- 숫자 -->
-  <section class="sec" id="numbers" data-rail="숫자" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="kicker">숫자로 보면</p>
-        <h2 class="big">감 대신,<br>숫자로 확인합니다.</h2>
-      </div>
-      <div class="stats-l">
-        <div class="stat reveal" data-from="20.9" data-to="4.6" data-dec="1">
-          <p class="label">전화 90통이 동시에 올 때, 첫 안내까지 가장 긴 대기</p>
-          <div class="value"><span class="n">4.6</span><small>초</small></div>
-          <p class="was">개선 전 <s>20.9초</s> · 부하 테스트</p>
-        </div>
-        <div class="stat reveal d1" data-from="5" data-to="1.4" data-dec="1">
-          <p class="label">AI 상담원의 응답 시간</p>
-          <div class="value"><span class="n">1.4</span><small>초</small></div>
-          <p class="was">개선 전 <s>5초</s> · 시제품 단계</p>
-        </div>
-        <div class="stat reveal" data-from="57" data-to="71" data-dec="0">
-          <p class="label">AI 상담원 상황별 대화 테스트</p>
-          <div class="value"><span class="n">71</span><small>/ 72</small></div>
-          <p class="was">개선 전 <s>57개</s> 통과 · 맞장구·끼어들기·침묵</p>
-        </div>
-        <div class="stat reveal d1" data-from="0" data-to="85" data-dec="0">
-          <p class="label">명단 엑셀 변환 회귀 테스트</p>
-          <div class="value"><span class="n">85</span><small>/ 85</small></div>
-          <p class="was">기관마다 다른 엑셀을 하나의 양식으로</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- 프로젝트 -->
   <section class="sec" id="cases" data-rail="프로젝트" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="kicker">프로젝트</p>
-        <h2 class="big">직접 만들고,<br>운영하며 개선한 서비스.</h2>
-        <p class="lede">회사 코드는 공개할 수 없어서, 구조와 판단 과정, 측정한 숫자를 정리했어요.</p>
+        <h2 class="big">직접 만들고,<br>운영하며 키운 서비스.</h2>
+        <p class="lede">프로젝트마다 맡은 역할과 기술적인 판단, 그리고 결과를 정리했어요.</p>
       </div>
       <div class="cases-l">
         <a class="case-l spot reveal" href="cases/ondajung.html">
           <div>
-            <p class="tag">B2G SaaS · 운영 중</p>
+            <p class="tag">B2G SaaS · 여러 기관에서 운영 중</p>
             <h3>온다정 — 노인 일자리 출퇴근·전화 서비스</h3>
-            <p>전화 한 통이나 링크로 출퇴근을 기록하고, 활동일지와 급여까지 이어 줍니다. 기관마다 전화번호와 교환기를 따로 두고, 모든 데이터를 기관 단위로 나눠요.</p>
+            <p>전화 한 통이나 링크로 출퇴근을 기록하고, 활동일지와 급여까지 이어 주는 서비스예요. 백엔드와 전화 인프라, 클라우드 운영을 맡아 기관마다 분리된 멀티테넌트 구조로 설계했어요.</p>
             <span class="go">자세히 보기 →</span>
           </div>
           <ul class="facts">
-            <li><b>20.9 → 4.6초</b>동시 90통일 때 첫 안내까지 최대 대기</li>
+            <li><b>78% 단축</b>출근 시간 첫 안내 최대 대기 20.9초 → 4.6초</li>
+            <li><b>동시 300통</b>부하 테스트에서 끊긴 통화 0건</li>
             <li><b>85 / 85</b>명단 변환 회귀 테스트</li>
-            <li><b>FastAPI · Asterisk · Kamailio</b>웹부터 전화 교환기까지</li>
-          </ul>
-        </a>
-        <a class="case-l spot reveal" href="cases/staff-app.html">
-          <div>
-            <p class="tag">모바일 · 시제품</p>
-            <h3>온다정 담당자 앱</h3>
-            <p>현장에 있는 담당자가 출근 현황, 다시 걸 전화, 걸려 온 전화 정보를 휴대폰에서 확인해요. 카카오로 로그인해도 소속 기관은 서버가 직접 확인합니다.</p>
-            <span class="go">자세히 보기 →</span>
-          </div>
-          <ul class="facts">
-            <li><b>66 / 66</b>버튼 동작 테스트</li>
-            <li><b>0</b>정적 분석 경고</li>
-            <li><b>Flutter</b>디자인 토큰을 한 파일로 관리</li>
           </ul>
         </a>
         <a class="case-l spot reveal" href="cases/agentone.html">
           <div>
             <p class="tag">Voice AI · 유료 운영 중</p>
             <h3>에이전트원 — AI 전화 상담원</h3>
-            <p>걸려 온 전화를 AI 상담원이 받고, 목록 순서대로 전화를 걸어 상담합니다. 전화망과 음성 AI를 잇는 부분을 맡았어요.</p>
+            <p>걸려 온 전화를 AI 상담원이 받고, 목록 순서대로 전화를 걸어 상담하는 서비스예요. 전화망과 음성 AI를 잇는 실시간 음성 파이프라인과 발신 엔진을 맡았어요.</p>
             <span class="go">자세히 보기 →</span>
           </div>
           <ul class="facts">
-            <li><b>5 → 1.4초</b>응답 시간</li>
-            <li><b>57 → 71 / 72</b>상황별 대화 테스트</li>
-            <li><b>재현율 0.930</b>자동응답 판별 (사람 오판 1건)</li>
+            <li><b>72% 단축</b>응답 지연 5초 → 1.4초</li>
+            <li><b>71 / 72</b>상황별 대화 테스트 (개선 전 57)</li>
+            <li><b>재현율 93%</b>자동응답 판별 · 실제 통화 971건 기준</li>
+          </ul>
+        </a>
+        <a class="case-l spot reveal" href="cases/staff-app.html">
+          <div>
+            <p class="tag">모바일 · MVP</p>
+            <h3>온다정 담당자 앱</h3>
+            <p>현장 담당자가 출근 현황, 다시 걸 전화, 걸려 온 전화 정보를 휴대폰으로 확인하는 Flutter 앱이에요. 설계부터 개발까지 맡았고, 카카오로 로그인하면 소속 기관은 서버가 검증해요.</p>
+            <span class="go">자세히 보기 →</span>
+          </div>
+          <ul class="facts">
+            <li><b>79 / 79</b>자동 테스트</li>
+            <li><b>경고 0</b>정적 분석</li>
+            <li><b>디자인 토큰</b>웹 서비스와 같은 화면 기준</li>
           </ul>
         </a>
         <a class="case-l spot reveal" href="cases/collab.html">
           <div>
             <p class="tag">사내 도구 · 운영 중</p>
             <h3>Pureprompt 사내 협업툴</h3>
-            <p>슬랙 같은 메신저에 현황 문서·할 일·일정을 더한 사내 협업툴을 처음부터 만들었어요. 위의 검색 데모가 이 협업툴에 들어간 기능이에요.</p>
+            <p>슬랙형 메신저에 현황 문서·할 일·일정, AI 에이전트용 API까지 더한 사내 협업툴이에요. 설계부터 배포까지 맡았고, 위의 검색 데모도 여기에 들어간 기능이에요.</p>
             <span class="go">자세히 보기 →</span>
           </div>
           <ul class="facts">
-            <li><b>13곳</b>같은 검색 함수를 공통으로 적용</li>
-            <li><b>API 283 · 화면 63</b>자동 테스트</li>
-            <li><b>화면 폭 10가지 × 31개 화면</b>레이아웃 자동 점검</li>
+            <li><b>346개</b>자동 테스트 (API 283 · 화면 63)</li>
+            <li><b>13곳</b>한국어 검색 함수 하나로 통일</li>
+            <li><b>10 × 31</b>화면 폭 × 화면 레이아웃 자동 점검</li>
           </ul>
         </a>
       </div>
@@ -261,13 +261,13 @@
       </div>
       <div class="tl-head reveal"><b>Pureprompt · 서비스개발자</b><span>2026 — 현재 · 제주</span></div>
       <ol class="tl">
-        <li class="spot reveal"><span class="when">2026.10</span><div><h4>회사 코드 저장소 정리</h4><p>서버에 흩어져 있던 코드를 모으는 도구와 업로드 전 보안 점검 도구를 만들어, 서비스 코드를 회사 저장소로 정리했어요.</p><div class="pills"><span>git</span><span>GitHub</span><span>Python</span></div></div></li>
-        <li class="spot reveal"><span class="when">2026.10</span><div><h4>온다정 담당자 앱 시제품</h4><p>현장 담당자를 위한 앱을 만들었어요. 디자인 토큰을 한 파일로 관리하고, 버튼 동작 66개를 모두 테스트했어요.</p><div class="pills"><span>Flutter</span><span>카카오 로그인</span></div></div></li>
-        <li class="spot reveal"><span class="when">2026.10</span><div><h4>에이전트원 유료 서비스 시작</h4><p>응답 시간 1.4초, 맞장구·침묵 처리, 자동응답 판별을 갖춰 고객사 운영을 시작했어요.</p><div class="pills"><span>Asterisk</span><span>ElevenLabs</span><span>OpenAI Realtime</span></div></div></li>
-        <li class="spot reveal"><span class="when">2026.10</span><div><h4>서비스 서버 클라우드 이전</h4><p>오라클 클라우드로 옮기면서 전환·롤백 절차를 스크립트로 만들고, 전환 전후 데이터를 대조했어요.</p><div class="pills"><span>Oracle Cloud</span><span>Caddy</span><span>systemd</span></div></div></li>
-        <li class="spot reveal"><span class="when">2026.10</span><div><h4>동시 통화 부하 테스트와 상주 서버</h4><p>출근 시간대 몰림을 미리 측정하고, 첫 안내까지 최대 대기를 20.9초에서 4.6초로 줄였어요.</p><div class="pills"><span>Asterisk</span><span>FastAGI</span><span>부하 테스트</span></div></div></li>
-        <li class="spot reveal"><span class="when">2026.09</span><div><h4>사내 협업툴 첫 버전</h4><p>슬랙형 메신저에 현황 문서와 할 일을 더해 사내에서 쓰기 시작했어요.</p><div class="pills"><span>FastAPI</span><span>WebSocket</span><span>SQLite</span></div></div></li>
-        <li class="spot reveal"><span class="when">2026.09</span><div><h4>온다정 담당자 화면과 전화 출근</h4><p>명단·근무·급여 화면과 전화 출근 기능을 하나로 연결해 시연했어요.</p><div class="pills"><span>FastAPI</span><span>PostgreSQL</span><span>Vanilla JS</span></div></div></li>
+        <li class="spot reveal"><span class="when">2026.10</span><div><h4>GitHub 조직 도입과 코드 저장소 체계화</h4><p>서비스 코드를 회사 GitHub 조직의 저장소 8개로 정리하고, 팀별 권한과 커밋 전 비밀값 자동 점검을 도입했어요.</p><div class="pills"><span>git</span><span>GitHub</span><span>Python</span></div></div></li>
+        <li class="spot reveal"><span class="when">2026.10</span><div><h4>온다정 담당자 앱 MVP</h4><p>현장 담당자용 Flutter 앱을 설계하고 개발했어요. 디자인 토큰으로 웹과 화면 기준을 맞추고, 자동 테스트 79개를 모두 통과시켰어요.</p><div class="pills"><span>Flutter</span><span>카카오 로그인</span></div></div></li>
+        <li class="spot reveal"><span class="when">2026.10</span><div><h4>에이전트원 유료 서비스 출시</h4><p>응답 지연 1.4초, 맞장구·침묵 처리, 자동응답 판별을 갖춰 고객사 유료 운영을 시작했어요.</p><div class="pills"><span>Asterisk</span><span>ElevenLabs</span><span>OpenAI Realtime</span></div></div></li>
+        <li class="spot reveal"><span class="when">2026.10</span><div><h4>운영 서버 클라우드 이전</h4><p>오라클 클라우드로 옮기며 전환·롤백 절차를 스크립트로 만들고, 기관마다 교환기를 나눠 배치했어요. 전환 전후 데이터는 건수로 대조해 검증했어요.</p><div class="pills"><span>Oracle Cloud</span><span>Caddy</span><span>systemd</span></div></div></li>
+        <li class="spot reveal"><span class="when">2026.10</span><div><h4>출근 시간 몰림 대비 부하 테스트</h4><p>동시 300통까지 재현하는 부하 테스트를 설계하고, 상주 FastAGI 서버로 첫 안내 최대 대기를 78% 줄였어요.</p><div class="pills"><span>Asterisk</span><span>FastAGI</span><span>부하 테스트</span></div></div></li>
+        <li class="spot reveal"><span class="when">2026.09</span><div><h4>사내 협업툴 출시</h4><p>슬랙형 메신저에 현황 문서와 할 일을 더한 사내 협업툴을 만들어 사내에서 쓰기 시작했어요.</p><div class="pills"><span>FastAPI</span><span>WebSocket</span><span>SQLite</span></div></div></li>
+        <li class="spot reveal"><span class="when">2026.09</span><div><h4>온다정 담당자 웹과 전화 출근</h4><p>명단·근무·급여 화면과 전화 출근을 하나의 흐름으로 연결했어요.</p><div class="pills"><span>FastAPI</span><span>PostgreSQL</span><span>Vanilla JS</span></div></div></li>
       </ol>
     </div>
   </section>
@@ -277,11 +277,11 @@
     <div class="wrap">
       <p class="kicker reveal">일하는 방식</p>
       <ul class="lines">
-        <li>바꿨다면, 확인까지.<span>‘될 것 같다’로 끝내지 않고 테스트 결과나 응답 비교로 확인해요.</span></li>
-        <li>되돌릴 방법부터.<span>운영 서버를 바꾸기 전에 백업과 되돌리는 방법을 먼저 준비해요.</span></li>
-        <li>측정할 수 있게.<span>‘느리다’는 말을 들으면 단계별 시간을 재서 어디가 느린지부터 찾아요.</span></li>
-        <li>경계는 코드로 지켜요.<span>여러 기관이 함께 쓰는 서비스는 처음부터 모든 조회에 기관 조건을 걸어요.</span></li>
-        <li>비밀은 코드 밖에.<span>키와 개인정보는 서버에만 두고, 업로드 전에는 보안 점검을 거쳐요.</span></li>
+        <li>바꿨다면, 확인까지.<span>‘될 것 같다’로 끝내지 않고, 테스트와 측정으로 확인한 뒤에 마무리해요.</span></li>
+        <li>되돌릴 방법부터.<span>운영 서버를 바꾸기 전에 백업과 롤백 절차를 먼저 준비해요.</span></li>
+        <li>추측보다 측정.<span>‘느리다’는 말을 들으면 단계별 시간을 재서 병목부터 찾아요.</span></li>
+        <li>경계는 코드로.<span>여러 기관이 함께 쓰는 서비스는 모든 조회에 기관 조건을 거는 것을 규칙으로 둬요.</span></li>
+        <li>비밀은 코드 밖에.<span>키와 개인정보는 서버에만 두고, 커밋 전에 자동으로 점검해요.</span></li>
       </ul>
     </div>
   </section>
@@ -294,8 +294,8 @@
         <h2 class="big">만들면서 측정하고<br>배운 것.</h2>
       </div>
       <div class="list-l">
-        <a class="tile spot reveal" href="posts/fastagi-load-test.html"><span class="t-kind">Asterisk · 부하 테스트</span><h4>동시 통화 부하 테스트로 첫 안내 대기를 20초에서 4초대로</h4><p>몰릴 때의 대기 시간을 단계별로 측정하고, 상주 서버와 연결 풀, 대체 경로로 줄인 과정.</p></a>
-        <a class="tile spot reveal d1" href="posts/korean-search.html"><span class="t-kind">JavaScript · 한글 입력</span><h4>초성·한영 오타 검색과 한글 조합 중 Enter 처리</h4><p>위 검색 데모의 동작 원리와, 브라우저마다 다른 한글 조합 Enter 처리 방법.</p></a>
+        <a class="tile spot reveal" href="posts/fastagi-load-test.html"><span class="t-kind">Asterisk · 부하 테스트</span><h4>동시 90통, 첫 안내 대기를 20.9초에서 4.6초로</h4><p>병목을 단계별로 측정해 찾고, 상주 서버·커넥션 풀·자동 대체 경로로 줄인 과정. 평균 대신 최악의 경우를 목표로 잡은 이유까지.</p></a>
+        <a class="tile spot reveal d1" href="posts/korean-search.html"><span class="t-kind">JavaScript · 한글 입력</span><h4>‘ㄴㅎㅇ’도 ‘skagusdn’도 남현우로</h4><p>초성 검색, 두벌식 오토마타로 한영 오타 바로잡기, 브라우저마다 다른 한글 조합 중 Enter 처리.</p></a>
       </div>
     </div>
   </section>
@@ -332,7 +332,7 @@
 <footer>
   <div class="wrap">
     <span>© 2026 남현우</span>
-    <span>회사 서비스의 코드와 고객 정보는 공개하지 않습니다. 숫자는 테스트와 운영 중 직접 측정한 값입니다.</span>
+    <span>회사 프로젝트는 코드 대신 구조와 측정 결과로 소개합니다.</span>
   </div>
 </footer>
 </body>

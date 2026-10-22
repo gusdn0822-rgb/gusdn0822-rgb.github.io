@@ -135,6 +135,16 @@ a.card:hover { border-color: var(--accent); }
 .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0 0 8px; padding: 0; list-style: none; }
 .meta li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 15px; }
 .meta small { display: block; color: var(--text-3); font-size: 12.5px; margin-bottom: 2px; }
+/* 사례 맨 위 '핵심 성과' — 읽는 사람이 설명보다 결과를 먼저 보게(요즘 포트폴리오 관례: 성과 → 역할 → 과정) */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 0 0 12px; padding: 0; list-style: none; }
+.kpis li { background: var(--accent-soft); border-radius: var(--radius-sm); padding: 14px 16px; }
+.kpis b { display: block; font-size: clamp(22px, 3vw, 28px); line-height: 1.25; letter-spacing: -.02em; color: var(--accent-ink); }
+.kpis span { display: block; margin-top: 4px; font-size: 14px; color: var(--text-2); }
+/* 글 맨 위 '요약' — 바쁜 사람은 세 줄만 읽고도 무엇을 했는지 알게 */
+.tldr { margin: 0 0 8px; }
+.tldr b { color: var(--text); }
+.tldr ul { margin: 6px 0 0; padding-left: 1.2em; }
+.tldr li { margin: 2px 0; }
 .block { padding: 36px 0; border-top: 1px solid var(--line); }
 .block h2 { font-size: 24px; letter-spacing: -.02em; margin: 0 0 14px; }
 .block p, .block li { max-width: 46em; }

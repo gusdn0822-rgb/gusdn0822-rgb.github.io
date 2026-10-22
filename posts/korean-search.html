@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>초성·한영 오타 검색과 한글 조합 중 Enter 처리 — 남현우</title>
+<title>‘ㄴㅎㅇ’도 ‘skagusdn’도 남현우로 — 남현우</title>
 <meta name="description" content="사내 메신저에 넣은 한국어 검색: 초성 검색, 영문 자판으로 입력한 글자를 한글로 바꾸는 두벌식 오토마타, 한글 조합 중 Enter 처리.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../assets/style.css">
@@ -19,9 +19,18 @@
 <main class="wrap">
   <article class="case post">
     <p class="crumb"><a href="../#posts">← 글 목록</a></p>
-    <h1>초성·한영 오타 검색과 한글 조합 중 Enter 처리</h1>
-    <p class="dek">사내 메신저를 만들며 한국어 사용자에 맞춘 세 가지 — 'ㄴㅎㅇ'으로 사람 찾기, 'skagusdn'을 '남현우'로 알아듣기, 한글을 조합하는 중에 누른 Enter 처리.</p>
+    <h1>‘ㄴㅎㅇ’도 ‘skagusdn’도 남현우로</h1>
+    <p class="dek">사내 메신저를 만들며 한국어 사용자에게 맞춘 세 가지 — 초성으로 사람 찾기, 영문 자판 오타를 한글로 알아듣기, 한글을 조합하는 중에 누른 Enter 처리.</p>
     <p class="date">2026년 10월 · JavaScript · <a href="../#demo">데모 써 보기 →</a></p>
+
+    <div class="note tldr">
+      <b>요약</b>
+      <ul>
+        <li>초성은 유니코드 계산 한 번으로 꺼내고, <b>낱말마다 따로</b> 비교합니다.</li>
+        <li>영문 자판 오타는 두벌식 오토마타로 자모를 글자로 묶어 한글로 바꿉니다.</li>
+        <li>조합 중 Enter는 브라우저마다 이벤트 순서가 달라, 조합이 끝난 직후에 전송합니다. 이 검색 함수 하나를 13곳에서 함께 씁니다.</li>
+      </ul>
+    </div>
 
     <h2>1. 초성 검색 — 낱말 단위로</h2>
     <p>한글 음절은 유니코드에서 <code>0xAC00</code>부터 규칙적으로 배치되어 있어서, 초성은 나눗셈 한 번으로 꺼낼 수 있습니다(초성 하나당 중성 21 × 종성 28 = 588자).</p>
@@ -65,7 +74,7 @@ choseong('남현우');   // 'ㄴㅎㅇ'</code></pre>
       <li>한국어 입력은 '글자'가 아니라 <b>자모와 조합</b>의 문제로 보면 풀립니다.</li>
       <li>검색 규칙은 한 함수로 — 화면마다 따로 만들면 사용자는 '여기서는 되고 저기서는 안 되는' 앱을 만나게 됩니다.</li>
     </ul>
-    <p class="note">위 코드는 설명을 위해 줄여서 다시 작성한 것입니다.</p>
+    <p class="note">코드는 설명을 위해 핵심만 남겨 다시 작성했습니다. <a href="../cases/collab.html">협업툴 프로젝트 보기 →</a></p>
   </article>
 </main>
 

@@ -99,6 +99,7 @@ body.landing { --side: clamp(16px, 4vw, 40px); --lh-tight: 1.22; letter-spacing:
 .stat .value small { font-size: .45em; font-weight: 700; margin-left: 4px; color: var(--text-2); }
 .stat .was { color: var(--text-3); font-size: 17px; margin: 14px 0 0; }
 .stat .was s { text-decoration-thickness: 1px; }
+.stat .was b { color: var(--accent-ink); font-weight: 700; }
 @media (max-width: 720px) { .stats-l { grid-template-columns: 1fr; } }
 
 /* ④ 사례 — 큰 둥근 카드, 번갈아 */
