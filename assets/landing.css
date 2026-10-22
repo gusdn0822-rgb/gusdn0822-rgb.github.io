@@ -30,7 +30,8 @@ body.landing { --side: clamp(16px, 4vw, 40px); --lh-tight: 1.22; letter-spacing:
 .stage-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5, 8, 15, .65), transparent 45%); z-index: 0; }
 .stage-copy { position: relative; z-index: 2; padding: clamp(24px, 5vw, 64px); }
 .stage-copy .eyebrow { color: #90c2ff; font-size: 15px; font-weight: 600; margin: 0 0 14px; letter-spacing: 0; }
-.stage-title { margin: 0; font-size: clamp(38px, 6.6vw, 80px); line-height: var(--lh-tight); font-weight: 700; letter-spacing: -.035em; }
+/* 글자 크기는 폭과 높이를 함께 본다 — 폰 가로(852×393)에서 폭만 보면 제목이 첫 화면을 다 덮었다(10/23 기종 점검) */
+.stage-title { margin: 0; font-size: clamp(34px, min(5.4vw, 11vh), 80px); line-height: var(--lh-tight); font-weight: 700; letter-spacing: -.035em; }
 .stage-title span { display: block; }
 /* 좁은 폰에선 '어르신의 / 전화 한 통부터' 로 끊는다 — 그냥 두면 '한 / 통부터' 로 어색하게 끊긴다 */
 .mbr { display: none; }
@@ -43,6 +44,9 @@ body.landing { --side: clamp(16px, 4vw, 40px); --lh-tight: 1.22; letter-spacing:
 .btn-l.grey { background: var(--surface-2); color: var(--text); }
 .stage-phone { position: absolute; z-index: 1; right: clamp(-40px, 6vw, 96px); top: 50%; transform: translateY(-50%); width: clamp(220px, 24vw, 300px); animation: float 7s ease-in-out infinite; }
 @keyframes float { 0%, 100% { transform: translateY(-50%); } 50% { transform: translateY(calc(-50% - 12px)); } }
+/* 큰 모니터에선 카드가 끝없이 늘지 않게 · 넓은 화면에선 글이 오른쪽 폰 자리를 비켜 간다(아이패드 가로에서 제목이 폰 밑으로 파고들었다) */
+.stage-card { max-width: 1680px; margin: 0 auto; }
+@media (min-width: 861px) { .stage-copy { padding-right: calc(clamp(220px, 24vw, 300px) + clamp(0px, 6vw, 96px) + 32px); } }
 @media (max-width: 860px) {
   .stage-card { align-items: start; min-height: auto; }
   .stage-phone { position: relative; right: auto; top: auto; transform: none; margin: 8px auto 0; width: min(240px, 62vw); animation: none; }
